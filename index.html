@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Brasil - Sua Loja Online</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><i class="fas fa-shopping-cart"></i> E-Commerce Brasil</h1>
+                    </div>
+                    <div class="search-bar">
+                        <form class="search-form">
+                            <select class="search-category">
+                                <option>Todos os departamentos</option>
+                                <option>Livros</option>
+                                <option>Eletrônicos</option>
+                                <option>Casa e Jardim</option>
+                                <option>Moda</option>
+                                <option>Esportes</option>
+                            </select>
+                            <input type="text" placeholder="Buscar produtos..." class="search-input">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-actions">
+                        <div class="account">
+                            <a href="login.html" class="account-link">
+                                <span class="account-text">Olá, faça seu login</span>
+                                <span class="account-subtext">Contas e Listas</span>
+                            </a>
+                        </div>
+                        <div class="orders">
+                            <a href="#orders" class="orders-link">
+                                <span class="orders-text">Devoluções</span>
+                                <span class="orders-subtext">e Pedidos</span>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="cart.html" class="cart-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                                <span class="cart-text">Carrinho</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-categories">
+                        <button class="nav-toggle">
+                            <i class="fas fa-bars"></i>
+                            Todos
+                        </button>
+                        <ul class="nav-menu">
+                            <li><a href="products.html?category=livros">Livros</a></li>
+                            <li><a href="products.html?category=eletronicos">Eletrônicos</a></li>
+                            <li><a href="products.html?category=casa">Casa e Jardim</a></li>
+                            <li><a href="products.html?category=moda">Moda</a></li>
+                            <li><a href="products.html?category=esportes">Esportes</a></li>
+                            <li><a href="products.html?category=beleza">Beleza</a></li>
+                            <li><a href="products.html?category=automotivo">Automotivo</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-promo">
+                        <a href="products.html">Ofertas do Dia</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-categories">
+                        <button class="nav-toggle">
+                            <i class="fas fa-bars"></i>
+                            Todos
+                        </button>
+                        <ul class="nav-menu">
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="products.html">Produtos</a></li>
+                            <li><a href="#categorias">Categorias</a></li>
+                            <li><a href="#ofertas">Ofertas</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-promo">
+                        <a href="products.html">Ofertas do Dia</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-banner">
+                        <img src="https://via.placeholder.com/1200x400/FF9900/FFFFFF?text=Banner+Principal" alt="Banner Principal">
+                        <div class="hero-text">
+                            <h2>Grandes Ofertas!</h2>
+                            <p>Até 70% de desconto em produtos selecionados</p>
+                            <a href="products.html" class="btn btn-primary">Comprar Agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">Categorias Populares</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <img src="https://via.placeholder.com/200x150/FF6B6B/FFFFFF?text=Livros" alt="Livros">
+                        <h3>Livros</h3>
+                        <a href="products.html?category=livros" class="category-link">Ver Produtos</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://via.placeholder.com/200x150/4ECDC4/FFFFFF?text=Eletrônicos" alt="Eletrônicos">
+                        <h3>Eletrônicos</h3>
+                        <a href="products.html?category=eletronicos" class="category-link">Ver Produtos</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://via.placeholder.com/200x150/45B7D1/FFFFFF?text=Casa" alt="Casa e Jardim">
+                        <h3>Casa e Jardim</h3>
+                        <a href="products.html?category=casa" class="category-link">Ver Produtos</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://via.placeholder.com/200x150/96CEB4/FFFFFF?text=Moda" alt="Moda">
+                        <h3>Moda</h3>
+                        <a href="products.html?category=moda" class="category-link">Ver Produtos</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://via.placeholder.com/200x150/FFEAA7/FFFFFF?text=Esportes" alt="Esportes">
+                        <h3>Esportes</h3>
+                        <a href="products.html?category=esportes" class="category-link">Ver Produtos</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://via.placeholder.com/200x150/DDA0DD/FFFFFF?text=Beleza" alt="Beleza">
+                        <h3>Beleza</h3>
+                        <a href="products.html?category=beleza" class="category-link">Ver Produtos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Produtos em Destaque</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/FF6B6B/FFFFFF?text=Produto+1" alt="Produto 1">
+                            <div class="product-badge">Oferta</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smartphone XYZ Pro</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(1.234)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 899,90</span>
+                                <span class="original-price">R$ 1.199,90</span>
+                                <span class="discount">25% OFF</span>
+                            </div>
+                            <div class="product-shipping">
+                                <i class="fas fa-truck"></i>
+                                <span>Frete grátis</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/4ECDC4/FFFFFF?text=Produto+2" alt="Produto 2">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Notebook Gamer ABC</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(856)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 2.499,90</span>
+                            </div>
+                            <div class="product-shipping">
+                                <i class="fas fa-truck"></i>
+                                <span>Frete grátis</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/45B7D1/FFFFFF?text=Produto+3" alt="Produto 3">
+                            <div class="product-badge">Novo</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Fone Bluetooth Premium</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(432)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 299,90</span>
+                            </div>
+                            <div class="product-shipping">
+                                <i class="fas fa-truck"></i>
+                                <span>Frete grátis</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/96CEB4/FFFFFF?text=Produto+4" alt="Produto 4">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smartwatch Fitness</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(678)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 599,90</span>
+                                <span class="original-price">R$ 799,90</span>
+                                <span class="discount">25% OFF</span>
+                            </div>
+                            <div class="product-shipping">
+                                <i class="fas fa-truck"></i>
+                                <span>Frete grátis</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-footer">
+                    <a href="products.html" class="btn btn-secondary">Ver Todos os Produtos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Receba nossas ofertas exclusivas!</h2>
+                    <p>Cadastre-se e receba promoções especiais diretamente no seu e-mail</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail" class="newsletter-input">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Atendimento ao Cliente</h3>
+                    <ul>
+                        <li><a href="#help">Central de Ajuda</a></li>
+                        <li><a href="#contact">Fale Conosco</a></li>
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
+                        <li><a href="#track">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Políticas</h3>
+                    <ul>
+                        <li><a href="#privacy">Política de Privacidade</a></li>
+                        <li><a href="#terms">Termos de Uso</a></li>
+                        <li><a href="#returns">Política de Devolução</a></li>
+                        <li><a href="#shipping">Política de Envio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Institucional</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#careers">Trabalhe Conosco</a></li>
+                        <li><a href="#press">Imprensa</a></li>
+                        <li><a href="#investors">Investidores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 E-Commerce Brasil. Todos os direitos reservados.</p>
+                    <p>CNPJ: 12.345.678/0001-90 | Rua das Flores, 123 - São Paulo/SP - CEP: 01234-567</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

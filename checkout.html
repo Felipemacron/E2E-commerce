@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - E-Commerce Brasil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><i class="fas fa-shopping-cart"></i> E-Commerce Brasil</h1>
+                    </div>
+                    <div class="search-bar">
+                        <form class="search-form">
+                            <select class="search-category">
+                                <option>Todos os departamentos</option>
+                                <option>Livros</option>
+                                <option>Eletrônicos</option>
+                                <option>Casa e Jardim</option>
+                                <option>Moda</option>
+                                <option>Esportes</option>
+                            </select>
+                            <input type="text" placeholder="Buscar produtos..." class="search-input">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-actions">
+                        <div class="account">
+                            <a href="login.html" class="account-link">
+                                <span class="account-text">Olá, faça seu login</span>
+                                <span class="account-subtext">Contas e Listas</span>
+                            </a>
+                        </div>
+                        <div class="orders">
+                            <a href="#orders" class="orders-link">
+                                <span class="orders-text">Devoluções</span>
+                                <span class="orders-subtext">e Pedidos</span>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="cart.html" class="cart-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">3</span>
+                                <span class="cart-text">Carrinho</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-categories">
+                        <button class="nav-toggle">
+                            <i class="fas fa-bars"></i>
+                            Todos
+                        </button>
+                        <ul class="nav-menu">
+                            <li><a href="products.html?category=livros">Livros</a></li>
+                            <li><a href="products.html?category=eletronicos">Eletrônicos</a></li>
+                            <li><a href="products.html?category=casa">Casa e Jardim</a></li>
+                            <li><a href="products.html?category=moda">Moda</a></li>
+                            <li><a href="products.html?category=esportes">Esportes</a></li>
+                            <li><a href="products.html?category=beleza">Beleza</a></li>
+                            <li><a href="products.html?category=automotivo">Automotivo</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-promo">
+                        <a href="products.html">Ofertas do Dia</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Início</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="cart.html">Carrinho</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Finalizar Compra</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="checkout-header">
+                <h1>Finalizar Compra</h1>
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Endereço</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Pagamento</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Confirmação</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-layout">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <!-- Address Section -->
+                    <div class="form-section">
+                        <h2>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Endereço de Entrega
+                        </h2>
+                        
+                        <div class="address-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Nome *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Sobrenome *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Telefone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="zipCode">CEP *</label>
+                                <div class="zipcode-group">
+                                    <input type="text" id="zipCode" name="zipCode" required>
+                                    <button type="button" class="btn btn-outline btn-cep">Buscar</button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Endereço *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="number">Número *</label>
+                                    <input type="text" id="number" name="number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="complement">Complemento</label>
+                                    <input type="text" id="complement" name="complement">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="neighborhood">Bairro *</label>
+                                    <input type="text" id="neighborhood" name="neighborhood" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">Cidade *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="state">Estado *</label>
+                                <select id="state" name="state" required>
+                                    <option value="">Selecione o estado</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="saveAddress">
+                                    <span class="checkmark"></span>
+                                    Salvar este endereço para futuras compras
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="form-section">
+                        <h2>
+                            <i class="fas fa-credit-card"></i>
+                            Forma de Pagamento
+                        </h2>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="creditCard" checked>
+                                    <div class="payment-info">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Cartão de Crédito</span>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="debitCard">
+                                    <div class="payment-info">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Cartão de Débito</span>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="pix">
+                                    <div class="payment-info">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>PIX</span>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="boleto">
+                                    <div class="payment-info">
+                                        <i class="fas fa-barcode"></i>
+                                        <span>Boleto Bancário</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Credit Card Form -->
+                        <div class="credit-card-form" id="creditCardForm">
+                            <div class="form-group">
+                                <label for="cardNumber">Número do Cartão *</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cardName">Nome no Cartão *</label>
+                                <input type="text" id="cardName" name="cardName" placeholder="Nome como está no cartão">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Validade *</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV *</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="000" maxlength="4">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="installments">Parcelamento</label>
+                                <select id="installments" name="installments">
+                                    <option value="1">1x de R$ 3.599,70 sem juros</option>
+                                    <option value="2">2x de R$ 1.799,85 sem juros</option>
+                                    <option value="3">3x de R$ 1.199,90 sem juros</option>
+                                    <option value="4">4x de R$ 899,93 sem juros</option>
+                                    <option value="5">5x de R$ 719,94 sem juros</option>
+                                    <option value="6">6x de R$ 599,95 sem juros</option>
+                                    <option value="7">7x de R$ 514,24 sem juros</option>
+                                    <option value="8">8x de R$ 449,96 sem juros</option>
+                                    <option value="9">9x de R$ 399,97 sem juros</option>
+                                    <option value="10">10x de R$ 359,97 sem juros</option>
+                                    <option value="11">11x de R$ 327,25 sem juros</option>
+                                    <option value="12">12x de R$ 299,98 sem juros</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- PIX Form -->
+                        <div class="pix-form" id="pixForm" style="display: none;">
+                            <div class="pix-info">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h3>Pagamento via PIX</h3>
+                                <p>Você será redirecionado para realizar o pagamento via PIX após confirmar o pedido.</p>
+                                <div class="pix-benefits">
+                                    <span><i class="fas fa-check"></i> Aprovação instantânea</span>
+                                    <span><i class="fas fa-check"></i> Sem taxas</span>
+                                    <span><i class="fas fa-check"></i> Desconto de 5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Boleto Form -->
+                        <div class="boleto-form" id="boletoForm" style="display: none;">
+                            <div class="boleto-info">
+                                <i class="fas fa-barcode"></i>
+                                <h3>Pagamento via Boleto</h3>
+                                <p>O boleto será gerado após a confirmação do pedido e enviado para seu e-mail.</p>
+                                <div class="boleto-benefits">
+                                    <span><i class="fas fa-check"></i> Pagamento em até 3 dias úteis</span>
+                                    <span><i class="fas fa-check"></i> Desconto de 3%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Section -->
+                    <div class="form-section">
+                        <h2>
+                            <i class="fas fa-truck"></i>
+                            Opções de Entrega
+                        </h2>
+                        
+                        <div class="delivery-options">
+                            <div class="delivery-option">
+                                <label class="delivery-choice">
+                                    <input type="radio" name="deliveryMethod" value="standard" checked>
+                                    <div class="delivery-info">
+                                        <div class="delivery-header">
+                                            <i class="fas fa-truck"></i>
+                                            <span class="delivery-name">Frete Padrão</span>
+                                            <span class="delivery-price">Grátis</span>
+                                        </div>
+                                        <p class="delivery-time">Entrega em 3-5 dias úteis</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="delivery-option">
+                                <label class="delivery-choice">
+                                    <input type="radio" name="deliveryMethod" value="express">
+                                    <div class="delivery-info">
+                                        <div class="delivery-header">
+                                            <i class="fas fa-shipping-fast"></i>
+                                            <span class="delivery-name">Frete Expresso</span>
+                                            <span class="delivery-price">R$ 15,90</span>
+                                        </div>
+                                        <p class="delivery-time">Entrega em 1-2 dias úteis</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="delivery-option">
+                                <label class="delivery-choice">
+                                    <input type="radio" name="deliveryMethod" value="sameDay">
+                                    <div class="delivery-info">
+                                        <div class="delivery-header">
+                                            <i class="fas fa-clock"></i>
+                                            <span class="delivery-name">Entrega no Mesmo Dia</span>
+                                            <span class="delivery-price">R$ 29,90</span>
+                                        </div>
+                                        <p class="delivery-time">Entrega em até 6 horas (apenas São Paulo)</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3>Resumo do Pedido</h3>
+                        
+                        <div class="order-items">
+                            <div class="order-item">
+                                <div class="item-image">
+                                    <img src="https://via.placeholder.com/60x60/FF6B6B/FFFFFF?text=Smartphone" alt="Smartphone XYZ Pro">
+                                </div>
+                                <div class="item-details">
+                                    <h4>Smartphone XYZ Pro 128GB</h4>
+                                    <span class="item-quantity">Qtd: 1</span>
+                                    <span class="item-price">R$ 899,90</span>
+                                </div>
+                            </div>
+                            
+                            <div class="order-item">
+                                <div class="item-image">
+                                    <img src="https://via.placeholder.com/60x60/4ECDC4/FFFFFF?text=Notebook" alt="Notebook Gamer ABC">
+                                </div>
+                                <div class="item-details">
+                                    <h4>Notebook Gamer ABC RTX 3060</h4>
+                                    <span class="item-quantity">Qtd: 1</span>
+                                    <span class="item-price">R$ 2.499,90</span>
+                                </div>
+                            </div>
+                            
+                            <div class="order-item">
+                                <div class="item-image">
+                                    <img src="https://via.placeholder.com/60x60/45B7D1/FFFFFF?text=Fone" alt="Fone Bluetooth Premium">
+                                </div>
+                                <div class="item-details">
+                                    <h4>Fone Bluetooth Premium</h4>
+                                    <span class="item-quantity">Qtd: 1</span>
+                                    <span class="item-price">R$ 299,90</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-details">
+                            <div class="summary-row order-subtotal">
+                                <span>Subtotal:</span>
+                                <span class="price">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row order-freight">
+                                <span>Frete:</span>
+                                <span class="price">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row order-discount">
+                                <span>Desconto:</span>
+                                <span class="price">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row total order-total">
+                                <span>Total:</span>
+                                <span class="price">R$ 0,00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="security-info">
+                            <div class="security-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Compra 100% segura</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Dados protegidos</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-place-order">
+                            <i class="fas fa-lock"></i>
+                            Finalizar Pedido
+                        </button>
+                        
+                        <div class="terms-agreement">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                Eu concordo com os <a href="terms.html">Termos de Uso</a> e <a href="privacy.html">Política de Privacidade</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Atendimento ao Cliente</h3>
+                    <ul>
+                        <li><a href="#help">Central de Ajuda</a></li>
+                        <li><a href="#contact">Fale Conosco</a></li>
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
+                        <li><a href="#track">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Políticas</h3>
+                    <ul>
+                        <li><a href="#privacy">Política de Privacidade</a></li>
+                        <li><a href="#terms">Termos de Uso</a></li>
+                        <li><a href="#returns">Política de Devolução</a></li>
+                        <li><a href="#shipping">Política de Envio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Institucional</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#careers">Trabalhe Conosco</a></li>
+                        <li><a href="#press">Imprensa</a></li>
+                        <li><a href="#investors">Investidores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 E-Commerce Brasil. Todos os direitos reservados.</p>
+                    <p>CNPJ: 12.345.678/0001-90 | Rua das Flores, 123 - São Paulo/SP - CEP: 01234-567</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

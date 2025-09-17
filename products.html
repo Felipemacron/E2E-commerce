@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - E-Commerce Brasil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="products.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><i class="fas fa-shopping-cart"></i> E-Commerce Brasil</h1>
+                    </div>
+                    <div class="search-bar">
+                        <form class="search-form">
+                            <select class="search-category">
+                                <option>Todos os departamentos</option>
+                                <option>Livros</option>
+                                <option>Eletrônicos</option>
+                                <option>Casa e Jardim</option>
+                                <option>Moda</option>
+                                <option>Esportes</option>
+                            </select>
+                            <input type="text" placeholder="Buscar produtos..." class="search-input">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-actions">
+                        <div class="account">
+                            <a href="login.html" class="account-link">
+                                <span class="account-text">Olá, faça seu login</span>
+                                <span class="account-subtext">Contas e Listas</span>
+                            </a>
+                        </div>
+                        <div class="orders">
+                            <a href="#orders" class="orders-link">
+                                <span class="orders-text">Devoluções</span>
+                                <span class="orders-subtext">e Pedidos</span>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="cart.html" class="cart-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                                <span class="cart-text">Carrinho</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-categories">
+                        <button class="nav-toggle">
+                            <i class="fas fa-bars"></i>
+                            Todos
+                        </button>
+                        <ul class="nav-menu">
+                            <li><a href="products.html?category=livros">Livros</a></li>
+                            <li><a href="products.html?category=eletronicos">Eletrônicos</a></li>
+                            <li><a href="products.html?category=casa">Casa e Jardim</a></li>
+                            <li><a href="products.html?category=moda">Moda</a></li>
+                            <li><a href="products.html?category=esportes">Esportes</a></li>
+                            <li><a href="products.html?category=beleza">Beleza</a></li>
+                            <li><a href="products.html?category=automotivo">Automotivo</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-promo">
+                        <a href="products.html">Ofertas do Dia</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Início</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Produtos</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>Filtros</h3>
+                        <button class="clear-filters">Limpar</button>
+                    </div>
+                    
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Categoria</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="eletronicos">
+                                <span>Eletrônicos</span>
+                                <span class="count">(156)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="livros">
+                                <span>Livros</span>
+                                <span class="count">(89)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="casa">
+                                <span>Casa e Jardim</span>
+                                <span class="count">(234)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="moda">
+                                <span>Moda</span>
+                                <span class="count">(178)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="esportes">
+                                <span>Esportes</span>
+                                <span class="count">(67)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4>Preço</h4>
+                        <div class="price-range">
+                            <div class="price-inputs">
+                                <input type="number" placeholder="Min" class="price-min">
+                                <span>até</span>
+                                <input type="number" placeholder="Max" class="price-max">
+                            </div>
+                            <button class="apply-price">Aplicar</button>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-group">
+                        <h4>Marca</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="apple">
+                                <span>Apple</span>
+                                <span class="count">(23)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="samsung">
+                                <span>Samsung</span>
+                                <span class="count">(45)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="sony">
+                                <span>Sony</span>
+                                <span class="count">(34)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="lg">
+                                <span>LG</span>
+                                <span class="count">(28)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <h4>Avaliação</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="5-star">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="count">(89)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="4-star">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="count">(156)</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="3-star">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="count">(78)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-group">
+                        <h4>Disponibilidade</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="in-stock">
+                                <span>Em estoque</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="free-shipping">
+                                <span>Frete grátis</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Content -->
+                <div class="products-content">
+                    <!-- Products Header -->
+                    <div class="products-header">
+                        <div class="products-info">
+                            <h2>Produtos</h2>
+                            <span class="products-count">Mostrando 1-24 de 1.234 produtos</span>
+                        </div>
+                        <div class="products-controls">
+                            <div class="sort-options">
+                                <label for="sort">Ordenar por:</label>
+                                <select id="sort" class="sort-select">
+                                    <option value="relevance">Relevância</option>
+                                    <option value="price-low">Menor preço</option>
+                                    <option value="price-high">Maior preço</option>
+                                    <option value="rating">Melhor avaliação</option>
+                                    <option value="newest">Mais recente</option>
+                                    <option value="name">Nome A-Z</option>
+                                </select>
+                            </div>
+                            <div class="view-options">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/250x250/FF6B6B/FFFFFF?text=Smartphone+XYZ" alt="Smartphone XYZ Pro">
+                                <div class="product-badge">Oferta</div>
+                                <div class="product-actions">
+                                    <button class="action-btn" title="Adicionar aos favoritos">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn" title="Comparar">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button class="action-btn" title="Visualização rápida">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Smartphone XYZ Pro 128GB</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-count">(1.234)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">R$ 899,90</span>
+                                    <span class="original-price">R$ 1.199,90</span>
+                                    <span class="discount">25% OFF</span>
+                                </div>
+                                <div class="product-shipping">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Frete grátis</span>
+                                </div>
+                                <div class="product-features">
+                                    <span class="feature">Câmera 48MP</span>
+                                    <span class="feature">Bateria 4000mAh</span>
+                                </div>
+                                <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/250x250/4ECDC4/FFFFFF?text=Notebook+Gamer" alt="Notebook Gamer ABC">
+                                <div class="product-actions">
+                                    <button class="action-btn" title="Adicionar aos favoritos">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn" title="Comparar">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button class="action-btn" title="Visualização rápida">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Notebook Gamer ABC RTX 3060</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(856)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">R$ 2.499,90</span>
+                                </div>
+                                <div class="product-shipping">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Frete grátis</span>
+                                </div>
+                                <div class="product-features">
+                                    <span class="feature">RTX 3060</span>
+                                    <span class="feature">16GB RAM</span>
+                                </div>
+                                <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/250x250/45B7D1/FFFFFF?text=Fone+Bluetooth" alt="Fone Bluetooth Premium">
+                                <div class="product-badge">Novo</div>
+                                <div class="product-actions">
+                                    <button class="action-btn" title="Adicionar aos favoritos">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn" title="Comparar">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button class="action-btn" title="Visualização rápida">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Fone Bluetooth Premium</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(432)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">R$ 299,90</span>
+                                </div>
+                                <div class="product-shipping">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Frete grátis</span>
+                                </div>
+                                <div class="product-features">
+                                    <span class="feature">Cancelamento de ruído</span>
+                                    <span class="feature">30h bateria</span>
+                                </div>
+                                <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/250x250/96CEB4/FFFFFF?text=Smartwatch+Fitness" alt="Smartwatch Fitness">
+                                <div class="product-actions">
+                                    <button class="action-btn" title="Adicionar aos favoritos">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn" title="Comparar">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button class="action-btn" title="Visualização rápida">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Smartwatch Fitness Pro</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-count">(678)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">R$ 599,90</span>
+                                    <span class="original-price">R$ 799,90</span>
+                                    <span class="discount">25% OFF</span>
+                                </div>
+                                <div class="product-shipping">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Frete grátis</span>
+                                </div>
+                                <div class="product-features">
+                                    <span class="feature">Monitor cardíaco</span>
+                                    <span class="feature">GPS integrado</span>
+                                </div>
+                                <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/250x250/FFEAA7/FFFFFF?text=Tablet+Pro" alt="Tablet Pro">
+                                <div class="product-actions">
+                                    <button class="action-btn" title="Adicionar aos favoritos">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn" title="Comparar">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button class="action-btn" title="Visualização rápida">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Tablet Pro 10.1" 64GB</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(321)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">R$ 1.199,90</span>
+                                </div>
+                                <div class="product-shipping">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Frete grátis</span>
+                                </div>
+                                <div class="product-features">
+                                    <span class="feature">Tela 10.1"</span>
+                                    <span class="feature">64GB</span>
+                                </div>
+                                <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/250x250/DDA0DD/FFFFFF?text=Camera+Digital" alt="Câmera Digital">
+                                <div class="product-badge">Oferta</div>
+                                <div class="product-actions">
+                                    <button class="action-btn" title="Adicionar aos favoritos">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn" title="Comparar">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </button>
+                                    <button class="action-btn" title="Visualização rápida">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">Câmera Digital DSLR 24MP</h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(567)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">R$ 1.899,90</span>
+                                    <span class="original-price">R$ 2.399,90</span>
+                                    <span class="discount">21% OFF</span>
+                                </div>
+                                <div class="product-shipping">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Frete grátis</span>
+                                </div>
+                                <div class="product-features">
+                                    <span class="feature">24MP</span>
+                                    <span class="feature">Kit completo</span>
+                                </div>
+                                <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination-btn prev" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Anterior
+                        </button>
+                        <div class="pagination-numbers">
+                            <button class="pagination-number active">1</button>
+                            <button class="pagination-number">2</button>
+                            <button class="pagination-number">3</button>
+                            <span class="pagination-dots">...</span>
+                            <button class="pagination-number">52</button>
+                        </div>
+                        <button class="pagination-btn next">
+                            Próximo
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Atendimento ao Cliente</h3>
+                    <ul>
+                        <li><a href="#help">Central de Ajuda</a></li>
+                        <li><a href="#contact">Fale Conosco</a></li>
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
+                        <li><a href="#track">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Políticas</h3>
+                    <ul>
+                        <li><a href="#privacy">Política de Privacidade</a></li>
+                        <li><a href="#terms">Termos de Uso</a></li>
+                        <li><a href="#returns">Política de Devolução</a></li>
+                        <li><a href="#shipping">Política de Envio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Institucional</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#careers">Trabalhe Conosco</a></li>
+                        <li><a href="#press">Imprensa</a></li>
+                        <li><a href="#investors">Investidores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 E-Commerce Brasil. Todos os direitos reservados.</p>
+                    <p>CNPJ: 12.345.678/0001-90 | Rua das Flores, 123 - São Paulo/SP - CEP: 01234-567</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

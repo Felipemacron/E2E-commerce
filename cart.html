@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - E-Commerce Brasil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><i class="fas fa-shopping-cart"></i> E-Commerce Brasil</h1>
+                    </div>
+                    <div class="search-bar">
+                        <form class="search-form">
+                            <select class="search-category">
+                                <option>Todos os departamentos</option>
+                                <option>Livros</option>
+                                <option>Eletrônicos</option>
+                                <option>Casa e Jardim</option>
+                                <option>Moda</option>
+                                <option>Esportes</option>
+                            </select>
+                            <input type="text" placeholder="Buscar produtos..." class="search-input">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-actions">
+                        <div class="account">
+                            <a href="login.html" class="account-link">
+                                <span class="account-text">Olá, faça seu login</span>
+                                <span class="account-subtext">Contas e Listas</span>
+                            </a>
+                        </div>
+                        <div class="orders">
+                            <a href="#orders" class="orders-link">
+                                <span class="orders-text">Devoluções</span>
+                                <span class="orders-subtext">e Pedidos</span>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="cart.html" class="cart-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">3</span>
+                                <span class="cart-text">Carrinho</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-categories">
+                        <button class="nav-toggle">
+                            <i class="fas fa-bars"></i>
+                            Todos
+                        </button>
+                        <ul class="nav-menu">
+                            <li><a href="products.html?category=livros">Livros</a></li>
+                            <li><a href="products.html?category=eletronicos">Eletrônicos</a></li>
+                            <li><a href="products.html?category=casa">Casa e Jardim</a></li>
+                            <li><a href="products.html?category=moda">Moda</a></li>
+                            <li><a href="products.html?category=esportes">Esportes</a></li>
+                            <li><a href="products.html?category=beleza">Beleza</a></li>
+                            <li><a href="products.html?category=automotivo">Automotivo</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-promo">
+                        <a href="products.html">Ofertas do Dia</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Início</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Carrinho de Compras</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="cart-header">
+                <h1>Carrinho de Compras</h1>
+                <div class="cart-summary">
+                    <span class="item-count">3 itens</span>
+                    <span class="total-price">Total: R$ 3.599,70</span>
+                </div>
+            </div>
+
+            <div class="cart-layout">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <!-- Items will be loaded dynamically from localStorage -->
+                    <div class="loading-cart">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: #ccc;"></i>
+                        <p>Carregando carrinho...</p>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary-section">
+                    <div class="summary-card">
+                        <h3>Resumo do Pedido</h3>
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Subtotal (<span class="summary-subtotal-items">0</span> itens):</span>
+                                <span class="summary-subtotal-amount">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Frete:</span>
+                                <span class="summary-shipping-amount free-shipping">Grátis</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Desconto:</span>
+                                <span class="summary-discount-amount">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span class="summary-total-amount">R$ 0,00</span>
+                            </div>
+                        </div>
+
+                        <div class="coupon-section">
+                            <h4>Cupom de Desconto</h4>
+                            <div class="coupon-input">
+                                <input type="text" placeholder="Digite o código do cupom" class="coupon-field">
+                                <button class="btn btn-outline coupon-btn">Aplicar</button>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button class="btn btn-primary btn-checkout">
+                                <i class="fas fa-lock"></i>
+                                Finalizar Compra
+                            </button>
+                            <button class="btn btn-secondary btn-continue">
+                                <i class="fas fa-arrow-left"></i>
+                                Continuar Comprando
+                            </button>
+                        </div>
+
+                        <div class="security-info">
+                            <div class="security-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Compra 100% segura</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Frete grátis</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="fas fa-undo"></i>
+                                <span>Devolução gratuita</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saved Items -->
+                    <div class="saved-items">
+                        <h3>Itens Salvos para Depois</h3>
+                        <div class="saved-item">
+                            <div class="saved-image">
+                                <img src="https://via.placeholder.com/80x80/96CEB4/FFFFFF?text=Smartwatch" alt="Smartwatch Fitness">
+                            </div>
+                            <div class="saved-details">
+                                <h4>Smartwatch Fitness Pro</h4>
+                                <div class="saved-price">R$ 599,90</div>
+                                <button class="btn btn-outline btn-move-to-cart">Mover para o carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations -->
+                    <div class="recommendations">
+                        <h3>Você também pode gostar</h3>
+                        <div class="recommendation-item">
+                            <div class="rec-image">
+                                <img src="https://via.placeholder.com/80x80/FFEAA7/FFFFFF?text=Tablet" alt="Tablet Pro">
+                            </div>
+                            <div class="rec-details">
+                                <h4>Tablet Pro 10.1"</h4>
+                                <div class="rec-price">R$ 1.199,90</div>
+                                <button class="btn btn-outline btn-add-rec">Adicionar</button>
+                            </div>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="rec-image">
+                                <img src="https://via.placeholder.com/80x80/DDA0DD/FFFFFF?text=Camera" alt="Câmera Digital">
+                            </div>
+                            <div class="rec-details">
+                                <h4>Câmera Digital DSLR</h4>
+                                <div class="rec-price">R$ 1.899,90</div>
+                                <button class="btn btn-outline btn-add-rec">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Informações de Envio -->
+            <div class="shipping-info">
+                <h2>Informações de Envio</h2>
+                <div class="shipping-options">
+                    <div class="shipping-option standard">
+                        <h4>Frete Padrão</h4>
+                        <p>Entrega em 3-5 dias úteis</p>
+                        <span class="shipping-price">Grátis</span>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Fim Informações de Envio -->
+
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <h2>Formas de Pagamento</h2>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Cartão de Crédito</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <span>Cartão de Débito</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fab fa-cc-paypal"></i>
+                        <span>PayPal</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fas fa-barcode"></i>
+                        <span>Boleto Bancário</span>
+                    </div>
+                    <div class="payment-option">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>PIX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Atendimento ao Cliente</h3>
+                    <ul>
+                        <li><a href="#help">Central de Ajuda</a></li>
+                        <li><a href="#contact">Fale Conosco</a></li>
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
+                        <li><a href="#track">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Políticas</h3>
+                    <ul>
+                        <li><a href="#privacy">Política de Privacidade</a></li>
+                        <li><a href="#terms">Termos de Uso</a></li>
+                        <li><a href="#returns">Política de Devolução</a></li>
+                        <li><a href="#shipping">Política de Envio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Institucional</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#careers">Trabalhe Conosco</a></li>
+                        <li><a href="#press">Imprensa</a></li>
+                        <li><a href="#investors">Investidores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 E-Commerce Brasil. Todos os direitos reservados.</p>
+                    <p>CNPJ: 12.345.678/0001-90 | Rua das Flores, 123 - São Paulo/SP - CEP: 01234-567</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

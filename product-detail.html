@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone XYZ Pro - E-Commerce Brasil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="logo">
+                        <h1><i class="fas fa-shopping-cart"></i> E-Commerce Brasil</h1>
+                    </div>
+                    <div class="search-bar">
+                        <form class="search-form">
+                            <select class="search-category">
+                                <option>Todos os departamentos</option>
+                                <option>Livros</option>
+                                <option>Eletrônicos</option>
+                                <option>Casa e Jardim</option>
+                                <option>Moda</option>
+                                <option>Esportes</option>
+                            </select>
+                            <input type="text" placeholder="Buscar produtos..." class="search-input">
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header-actions">
+                        <div class="account">
+                            <a href="login.html" class="account-link">
+                                <span class="account-text">Olá, faça seu login</span>
+                                <span class="account-subtext">Contas e Listas</span>
+                            </a>
+                        </div>
+                        <div class="orders">
+                            <a href="#orders" class="orders-link">
+                                <span class="orders-text">Devoluções</span>
+                                <span class="orders-subtext">e Pedidos</span>
+                            </a>
+                        </div>
+                        <div class="cart">
+                            <a href="cart.html" class="cart-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                                <span class="cart-text">Carrinho</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="nav-categories">
+                        <button class="nav-toggle">
+                            <i class="fas fa-bars"></i>
+                            Todos
+                        </button>
+                        <ul class="nav-menu">
+                            <li><a href="products.html?category=livros">Livros</a></li>
+                            <li><a href="products.html?category=eletronicos">Eletrônicos</a></li>
+                            <li><a href="products.html?category=casa">Casa e Jardim</a></li>
+                            <li><a href="products.html?category=moda">Moda</a></li>
+                            <li><a href="products.html?category=esportes">Esportes</a></li>
+                            <li><a href="products.html?category=beleza">Beleza</a></li>
+                            <li><a href="products.html?category=automotivo">Automotivo</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-promo">
+                        <a href="products.html">Ofertas do Dia</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Início</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="products.html?category=eletronicos">Eletrônicos</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="products.html?category=smartphones">Smartphones</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Smartphone XYZ Pro</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="product-detail-layout">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="https://via.placeholder.com/500x500/FF6B6B/FFFFFF?text=Smartphone+XYZ+Pro" alt="Smartphone XYZ Pro" id="mainImage">
+                        <div class="image-zoom">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active" data-image="https://via.placeholder.com/500x500/FF6B6B/FFFFFF?text=Smartphone+XYZ+Pro">
+                            <img src="https://via.placeholder.com/100x100/FF6B6B/FFFFFF?text=Front" alt="Frente">
+                        </div>
+                        <div class="thumbnail" data-image="https://via.placeholder.com/500x500/4ECDC4/FFFFFF?text=Smartphone+XYZ+Back">
+                            <img src="https://via.placeholder.com/100x100/4ECDC4/FFFFFF?text=Back" alt="Trás">
+                        </div>
+                        <div class="thumbnail" data-image="https://via.placeholder.com/500x500/45B7D1/FFFFFF?text=Smartphone+XYZ+Side">
+                            <img src="https://via.placeholder.com/100x100/45B7D1/FFFFFF?text=Side" alt="Lateral">
+                        </div>
+                        <div class="thumbnail" data-image="https://via.placeholder.com/500x500/96CEB4/FFFFFF?text=Smartphone+XYZ+Box">
+                            <img src="https://via.placeholder.com/100x100/96CEB4/FFFFFF?text=Box" alt="Caixa">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <h1 class="product-title">Smartphone XYZ Pro 128GB - Preto</h1>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">4.5 (1.234 avaliações)</span>
+                            <a href="#reviews" class="rating-link">Ver todas as avaliações</a>
+                        </div>
+                    </div>
+
+                    <div class="product-price-section">
+                        <div class="price-info">
+                            <span class="current-price">R$ 899,90</span>
+                            <span class="original-price">R$ 1.199,90</span>
+                            <span class="discount">25% OFF</span>
+                        </div>
+                        <div class="price-details">
+                            <p class="installments">ou 12x de R$ 74,99 sem juros</p>
+                            <p class="shipping-info">
+                                <i class="fas fa-truck"></i>
+                                <span>Frete grátis para todo o Brasil</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Cor:</label>
+                            <div class="color-options">
+                                <button class="color-option active" data-color="preto">
+                                    <span class="color-swatch" style="background-color: #000;"></span>
+                                    Preto
+                                </button>
+                                <button class="color-option" data-color="branco">
+                                    <span class="color-swatch" style="background-color: #fff; border: 1px solid #ddd;"></span>
+                                    Branco
+                                </button>
+                                <button class="color-option" data-color="azul">
+                                    <span class="color-swatch" style="background-color: #0066cc;"></span>
+                                    Azul
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label>Armazenamento:</label>
+                            <div class="storage-options">
+                                <button class="storage-option active" data-storage="128gb">128GB</button>
+                                <button class="storage-option" data-storage="256gb">256GB</button>
+                                <button class="storage-option" data-storage="512gb">512GB</button>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label>Quantidade:</label>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10" class="quantity-input">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-add-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Adicionar ao Carrinho
+                        </button>
+                        <button class="btn btn-secondary btn-buy-now">
+                            <i class="fas fa-bolt"></i>
+                            Comprar Agora
+                        </button>
+                        <button class="btn btn-outline btn-wishlist">
+                            <i class="far fa-heart"></i>
+                            Adicionar aos Favoritos
+                        </button>
+                    </div>
+
+                    <div class="product-features">
+                        <h3>Principais Características</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Câmera traseira de 48MP com estabilização</li>
+                            <li><i class="fas fa-check"></i> Bateria de 4000mAh com carregamento rápido</li>
+                            <li><i class="fas fa-check"></i> Tela AMOLED de 6.1" com 90Hz</li>
+                            <li><i class="fas fa-check"></i> Processador octa-core de última geração</li>
+                            <li><i class="fas fa-check"></i> Resistente à água (IP68)</li>
+                            <li><i class="fas fa-check"></i> Sistema operacional Android 13</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-shipping">
+                        <h3>Informações de Envio</h3>
+                        <div class="shipping-options">
+                            <div class="shipping-option">
+                                <i class="fas fa-truck"></i>
+                                <div>
+                                    <strong>Frete Padrão</strong>
+                                    <p>Entrega em 3-5 dias úteis - Grátis</p>
+                                </div>
+                            </div>
+                            <div class="shipping-option">
+                                <i class="fas fa-shipping-fast"></i>
+                                <div>
+                                    <strong>Frete Expresso</strong>
+                                    <p>Entrega em 1-2 dias úteis - R$ 15,90</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Tabs -->
+            <div class="product-tabs">
+                <div class="tab-navigation">
+                    <button class="tab-btn active" data-tab="description">Descrição</button>
+                    <button class="tab-btn" data-tab="specifications">Especificações</button>
+                    <button class="tab-btn" data-tab="reviews">Avaliações</button>
+                    <button class="tab-btn" data-tab="questions">Perguntas</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Description Tab -->
+                    <div class="tab-panel active" id="description">
+                        <h3>Descrição do Produto</h3>
+                        <p>O Smartphone XYZ Pro é o mais avançado dispositivo móvel da linha XYZ, oferecendo performance excepcional e recursos inovadores. Com design elegante e construção premium, este smartphone combina estilo e funcionalidade.</p>
+                        
+                        <h4>Design e Construção</h4>
+                        <p>Feito com materiais de alta qualidade, o XYZ Pro apresenta um design moderno e ergonômico. A tela de 6.1 polegadas oferece uma experiência visual imersiva, enquanto o corpo resistente à água garante durabilidade em qualquer situação.</p>
+                        
+                        <h4>Performance</h4>
+                        <p>Equipado com o mais recente processador octa-core, o XYZ Pro oferece performance excepcional para todas as suas necessidades. Seja para jogos, multitarefa ou aplicações profissionais, este dispositivo está preparado para qualquer desafio.</p>
+                        
+                        <h4>Câmera Profissional</h4>
+                        <p>A câmera traseira de 48MP com estabilização óptica garante fotos e vídeos de qualidade profissional. O sistema de câmeras múltiplas permite capturar momentos únicos com detalhes impressionantes.</p>
+                    </div>
+
+                    <!-- Specifications Tab -->
+                    <div class="tab-panel" id="specifications">
+                        <h3>Especificações Técnicas</h3>
+                        <div class="specifications-grid">
+                            <div class="spec-group">
+                                <h4>Geral</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Marca:</span>
+                                    <span class="spec-value">XYZ</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Modelo:</span>
+                                    <span class="spec-value">Pro 128GB</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Cor:</span>
+                                    <span class="spec-value">Preto</span>
+                                </div>
+                            </div>
+                            
+                            <div class="spec-group">
+                                <h4>Tela</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Tamanho:</span>
+                                    <span class="spec-value">6.1"</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Tipo:</span>
+                                    <span class="spec-value">AMOLED</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Resolução:</span>
+                                    <span class="spec-value">2400 x 1080</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Taxa de atualização:</span>
+                                    <span class="spec-value">90Hz</span>
+                                </div>
+                            </div>
+                            
+                            <div class="spec-group">
+                                <h4>Câmera</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Câmera traseira:</span>
+                                    <span class="spec-value">48MP + 12MP + 8MP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Câmera frontal:</span>
+                                    <span class="spec-value">32MP</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Estabilização:</span>
+                                    <span class="spec-value">Óptica</span>
+                                </div>
+                            </div>
+                            
+                            <div class="spec-group">
+                                <h4>Performance</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Processador:</span>
+                                    <span class="spec-value">Octa-core 2.8GHz</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">RAM:</span>
+                                    <span class="spec-value">8GB</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Armazenamento:</span>
+                                    <span class="spec-value">128GB</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Sistema:</span>
+                                    <span class="spec-value">Android 13</span>
+                                </div>
+                            </div>
+                            
+                            <div class="spec-group">
+                                <h4>Bateria</h4>
+                                <div class="spec-item">
+                                    <span class="spec-label">Capacidade:</span>
+                                    <span class="spec-value">4000mAh</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Carregamento:</span>
+                                    <span class="spec-value">Rápido 30W</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Sem fio:</span>
+                                    <span class="spec-value">Sim</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-panel" id="reviews">
+                        <h3>Avaliações dos Clientes</h3>
+                        
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="overall-rating">
+                                    <span class="rating-number">4.5</span>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p>Baseado em 1.234 avaliações</p>
+                                </div>
+                            </div>
+                            
+                            <div class="rating-breakdown">
+                                <div class="rating-bar">
+                                    <span>5 estrelas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 70%;"></div>
+                                    </div>
+                                    <span>70%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>4 estrelas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 20%;"></div>
+                                    </div>
+                                    <span>20%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>3 estrelas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 7%;"></div>
+                                    </div>
+                                    <span>7%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>2 estrelas</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 2%;"></div>
+                                    </div>
+                                    <span>2%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>1 estrela</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 1%;"></div>
+                                    </div>
+                                    <span>1%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <strong>João Silva</strong>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">15 de Janeiro, 2024</span>
+                                </div>
+                                <div class="review-content">
+                                    <h4>Excelente smartphone!</h4>
+                                    <p>Comprei este smartphone há um mês e estou muito satisfeito. A câmera é incrível, a bateria dura o dia todo e o desempenho é excelente. Recomendo!</p>
+                                </div>
+                                <div class="review-helpful">
+                                    <span>Esta avaliação foi útil?</span>
+                                    <button class="helpful-btn">Sim (15)</button>
+                                    <button class="helpful-btn">Não (2)</button>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <strong>Maria Santos</strong>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">10 de Janeiro, 2024</span>
+                                </div>
+                                <div class="review-content">
+                                    <h4>Muito bom, mas poderia melhorar</h4>
+                                    <p>O smartphone é muito bom, mas a bateria poderia durar mais. A câmera é excelente e o design é bonito. Entrega rápida.</p>
+                                </div>
+                                <div class="review-helpful">
+                                    <span>Esta avaliação foi útil?</span>
+                                    <button class="helpful-btn">Sim (8)</button>
+                                    <button class="helpful-btn">Não (1)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Questions Tab -->
+                    <div class="tab-panel" id="questions">
+                        <h3>Perguntas e Respostas</h3>
+                        
+                        <div class="questions-list">
+                            <div class="question-item">
+                                <div class="question-header">
+                                    <h4>Este smartphone tem carregamento sem fio?</h4>
+                                    <span class="question-date">Perguntado em 20 de Janeiro, 2024</span>
+                                </div>
+                                <div class="question-answer">
+                                    <p><strong>Resposta:</strong> Sim, o Smartphone XYZ Pro possui carregamento sem fio compatível com padrão Qi.</p>
+                                </div>
+                            </div>
+
+                            <div class="question-item">
+                                <div class="question-header">
+                                    <h4>Qual a garantia deste produto?</h4>
+                                    <span class="question-date">Perguntado em 18 de Janeiro, 2024</span>
+                                </div>
+                                <div class="question-answer">
+                                    <p><strong>Resposta:</strong> Este produto possui garantia de 12 meses contra defeitos de fabricação.</p>
+                                </div>
+                            </div>
+
+                            <div class="question-item">
+                                <div class="question-header">
+                                    <h4>Vem com fone de ouvido na caixa?</h4>
+                                    <span class="question-date">Perguntado em 15 de Janeiro, 2024</span>
+                                </div>
+                                <div class="question-answer">
+                                    <p><strong>Resposta:</strong> Não, o produto não inclui fone de ouvido. Apenas o smartphone, cabo USB-C e manual.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2>Produtos Relacionados</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/4ECDC4/FFFFFF?text=Notebook+Gamer" alt="Notebook Gamer ABC">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Notebook Gamer ABC RTX 3060</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-count">(856)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 2.499,90</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/45B7D1/FFFFFF?text=Fone+Bluetooth" alt="Fone Bluetooth Premium">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Fone Bluetooth Premium</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(432)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 299,90</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/96CEB4/FFFFFF?text=Smartwatch+Fitness" alt="Smartwatch Fitness">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Smartwatch Fitness Pro</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-count">(678)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 599,90</span>
+                                <span class="original-price">R$ 799,90</span>
+                                <span class="discount">25% OFF</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250x250/FFEAA7/FFFFFF?text=Tablet+Pro" alt="Tablet Pro">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Tablet Pro 10.1" 64GB</h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(321)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">R$ 1.199,90</span>
+                            </div>
+                            <button class="btn btn-add-cart">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Atendimento ao Cliente</h3>
+                    <ul>
+                        <li><a href="#help">Central de Ajuda</a></li>
+                        <li><a href="#contact">Fale Conosco</a></li>
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
+                        <li><a href="#track">Rastrear Pedido</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Políticas</h3>
+                    <ul>
+                        <li><a href="#privacy">Política de Privacidade</a></li>
+                        <li><a href="#terms">Termos de Uso</a></li>
+                        <li><a href="#returns">Política de Devolução</a></li>
+                        <li><a href="#shipping">Política de Envio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Institucional</h3>
+                    <ul>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#careers">Trabalhe Conosco</a></li>
+                        <li><a href="#press">Imprensa</a></li>
+                        <li><a href="#investors">Investidores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 E-Commerce Brasil. Todos os direitos reservados.</p>
+                    <p>CNPJ: 12.345.678/0001-90 | Rua das Flores, 123 - São Paulo/SP - CEP: 01234-567</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

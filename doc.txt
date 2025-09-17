@@ -1,0 +1,535 @@
+Bem-vindo à documentação oficial do **E2E-Commerce**, nossa plataforma web responsiva de **marketplace** que conecta fornecedores e clientes em um ambiente de compra e venda simples, seguro e escalável.
+
+Este espaço reúne as informações principais do projeto, organizadas por áreas, para facilitar o acesso de todos os envolvidos: produto, tecnologia, design, fornecedores e stakeholders.
+
+📌 O que você encontra aqui
+
+[Visão do Projeto](https://www.notion.so/Vis-o-do-Projeto-271e723f953f816fbafff3b684f0e91e?pvs=21)
+
+[Gestão de Usuários](https://www.notion.so/Gest-o-de-Usu-rios-271e723f953f81e19b19fe4e59f58ada?pvs=21)
+
+[Gestão de Produtos](https://www.notion.so/Gest-o-de-Produtos-271e723f953f81608920c707dd9ca197?pvs=21)
+
+[Gestão de Pedidos](https://www.notion.so/Gest-o-de-Pedidos-271e723f953f81f68255d50d2a2c59a9?pvs=21)
+
+[Logística](https://www.notion.so/Log-stica-271e723f953f8162a390c21f5da73bf4?pvs=21)
+
+[Pagamento/Financeiro](https://www.notion.so/Pagamento-Financeiro-271e723f953f81baaf85d98d73dd660c?pvs=21)
+
+> 🎯 Objetivo do MVP
+> 
+> 
+> ---
+> 
+
+Validar o modelo de negócio de marketplace, garantindo o fluxo essencial de compra e venda online, antes da expansão para funcionalidades mais avançadas.
+
+
+# Visão do Projeto
+
+**Projeto:** E2E‑Commerce
+
+**Versão:** 0.1 (Rascunho)
+
+**PO:** Anderson (E2E Treinamentos / E2E Coders)
+
+**Objetivo:** Desenvolver uma plataforma web responsiva de marketplace para compra e venda de produtos, iniciando por um
+
+**MVP** com foco em fluxo de compra essencial, fornecedores terceiros e base operacional segura.
+
+## 1. Propósito do Projeto
+
+O **E2E‑Commerce** tem como objetivo criar uma **plataforma web responsiva** de **marketplace**, conectando **fornecedores** que desejam vender seus produtos e **clientes** que buscam uma experiência de compra online simples, segura e acessível.
+
+O projeto será desenvolvido de forma **evolutiva**, começando por um **MVP (Produto Mínimo Viável)** que trará as funcionalidades essenciais para validar o modelo de negócio e permitir a entrada no mercado.
+
+---
+
+## 2. Objetivos de Negócio
+
+- Permitir que **clientes** encontrem, comprem e avaliem produtos de forma fácil.
+- Garantir que **fornecedores** possam cadastrar e gerenciar seus produtos.
+- Disponibilizar um fluxo de **compra completo**: do carrinho ao pagamento e entrega.
+- Validar o modelo de **marketplace** antes de expandir para funcionalidades mais complexas.
+
+---
+
+## 3. Público-Alvo
+
+- **Clientes finais** que buscam conveniência na compra de produtos online.
+- **Fornecedores e lojistas** que desejam um canal digital para ampliar suas vendas.
+- **Equipe interna de administração**, responsável por gerir usuários, pedidos e fornecedores.
+
+---
+
+## 4. Escopo do MVP
+
+O MVP contemplará os seguintes blocos funcionais:
+
+### Gestão de Usuários
+
+- Cadastro de usuários
+- Login e logout
+- Redefinição de senha
+
+### Gestão de Produtos
+
+- Cadastro e consulta de produtos
+- Controle de estoque
+
+### Gestão de Pedidos
+
+- Carrinho de compras
+- Finalização da compra
+- Avaliação do pedido após entrega
+
+### Gestão de Fornecedores
+
+- Cadastro, edição e exclusão de fornecedores
+
+### Logística
+
+- Definição de tipos de entrega
+- Cálculo de frete básico
+
+### Pagamento/Financeiro
+
+- Pagamento online (cartão/PIX)
+- Registro do status financeiro do pedido
+
+---
+
+## 5. Resultados Esperados
+
+- Criar uma base sólida para escalar o marketplace com novas funcionalidades no futuro.
+- Validar o modelo de compra e venda online em ambiente real.
+- Atrair os primeiros clientes e fornecedores para a plataforma.
+- Estabelecer métricas iniciais de conversão, satisfação do cliente e retenção.
+
+---
+
+## 6. Roadmap de Evolução
+
+- **MVP:** funcionalidades essenciais descritas acima.
+- **Próxima fase:** a definir
+- **Fase futura:** a definir
+
+---
+
+## 7. Benefícios Esperados
+
+- Aumento de alcance de vendas para fornecedores parceiros.
+- Praticidade e conveniência para clientes.
+- Posicionamento da E2E‑Commerce como uma plataforma digital inovadora no setor de e‑commerce.
+
+# Gestão de Usuários
+
+## Contexto
+
+A plataforma precisa de um módulo de **Gestão de Usuários** que permita administrar todas as pessoas que acessam o sistema (clientes, administradores, vendedores, etc.). Esse módulo deve oferecer funcionalidades básicas de cadastro, edição, visualização e exclusão, além de regras de negócio que garantam a segurança e o controle de acessos.
+
+## História
+
+**Como** administrador da plataforma
+
+**Quero** gerenciar os usuários do sistema (criar, editar, visualizar e excluir)
+
+**Para que** eu consiga manter o controle de quem acessa e definir os níveis de permissão de cada um.
+
+---
+
+## Regras de Negócio
+
+1. **Cadastro de Usuário**
+    - Deve ser possível cadastrar um usuário com os seguintes dados obrigatórios:
+        - Nome completo
+        - E-mail (único)
+        - Senha
+        - Perfil ( Vendedor / Cliente)
+        - O e-mail não pode se repetir no sistema.
+    - A senha deve ter no mínimo 10 caracteres
+        - Senha deve possuir Números, Letras e Caracteres especiais.
+2. **Login de Usuário**
+    - O login deve ser realizado com e-mail e senha válidos.
+    - Caso o e-mail ou senha estejam incorretos, exibir mensagem de erro.
+    - Após login, direcionar o usuário para sua área correspondente (ex.: cliente para loja).
+3. **Perfis e Permissões**
+    - Vendedor: consultar pedidos e atender clientes.
+    - Cliente: pode navegar na loja, comprar e acompanhar seus pedidos.
+4. **Edição de Usuário**
+    - Usuários comuns (Cliente, Vendedor) só podem editar seus próprios dados (nome, senha, e-mail).
+5. **Exclusão de Usuário**
+    - Usuário e Vendedor antes da exclusão deve aparecer uma mensagem de confirmação.
+6. **Segurança**
+    - Todas as senhas devem ser armazenadas de forma criptografada.
+    - O sistema deve encerrar a sessão automaticamente após 30 minutos de inatividade.
+
+---
+
+## Critérios de Aceite
+
+- É possível **criar** um novo usuário com dados válidos.
+- O sistema **impede** cadastro de e-mails duplicados.
+- Usuário só consegue **entrar** com credenciais corretas.
+- Cada perfil possui **permissões distintas**.
+- Usuários só conseguem editar dados permitidos.
+- O logout automático funciona após inatividade.
+
+---
+
+## Fluxo Principal
+
+1. Clica em **"Novo Usuário"** e preenche os dados.
+2. O sistema valida os dados e salva o cadastro.
+3. Usuário acessa o sistema com login e senha.
+4. Dependendo do perfil, acessa diferentes áreas.
+
+
+# Gestão de Produtos
+
+## Contexto
+
+Os produtos já estarão cadastrados em um **banco de dados MySQL**. Os alunos **não poderão cadastrar/editar dados de produto**; apenas **consultar** e **aumentar a quantidade em estoque** em **lotes de 10 unidades**.
+
+## História
+
+**Como** operador da plataforma (aluno)
+
+**Quero** consultar os produtos disponíveis e aumentar o estoque em lotes de 10
+
+**Para** manter a disponibilidade sem alterar dados cadastrais do catálogo.
+
+## Escopo (o que está dentro)
+
+- Consultar/listar produtos.
+- Buscar por nome, filtrar por categoria e ordenar por preço/estoque.
+- Ver detalhes de um produto (nome, descrição, categoria, preço, estoque atual, imagem).
+- Aumentar a **quantidade em estoque** de um produto em **múltiplos de 10** (ex.: +10, +20, +30…).
+
+## Fora de escopo
+
+- Criar, editar ou excluir produtos.
+- Alterar preço, nome, descrição, categoria.
+- Reduzir estoque.
+
+## Regras de Negócio
+
+1. **Somente acréscimo em lotes de 10** é permitido (múltiplos de 10).
+2. O estoque **nunca pode ser negativo** (não há redução).
+3. Se houver **limite máximo de estoque** definido pela operação (opcional), impedir acréscimos que ultrapassem esse limite e exibir mensagem clara.
+4. Produtos **inativos** não podem receber acréscimo de estoque.
+5. Toda operação de acréscimo deve **confirmar** a ação (ex.: modal “Confirmar +20?”) e exibir o **estoque atualizado** ao final.
+6. Em caso de falha na atualização, exibir mensagem de erro e **não** alterar o valor exibido até que a operação seja bem-sucedida.
+7. O valor informado para acréscimo deve ser **10, 20, 30…**; qualquer outro valor é inválido.
+8. As imagens serão adicionadas pelo frontend de acordo com a caracterisca do produto.
+
+## Critérios de Aceite
+
+- É possível visualizar uma **lista paginada** de produtos com: Nome, Categoria, Preço e Estoque.
+- Existe **busca por nome** e **filtro por categoria**.
+- Ao abrir um produto, vejo seus **detalhes** e o **estoque atual**.
+- Há um controle para escolher o **lote de acréscimo** (ex.: seletor: 10, 20, 30, 40…).
+- Ao solicitar o acréscimo:
+    - O sistema valida o múltiplo de 10.
+    - Mostra **confirmação** antes de aplicar.
+    - Atualiza o **estoque** e mostra uma **mensagem de sucesso**.
+- Em caso de erro (produto inativo, limite excedido, falha na atualização), a operação é **cancelada** e o usuário vê uma **mensagem explicativa**.
+- Não existe opção de “Novo produto”, “Editar” ou “Excluir”.
+
+## Fluxos
+
+### Fluxo Principal – Consultar produtos
+
+1. Operador acessa “Gestão de Produtos”.
+2. Visualiza a lista com nome, categoria, preço e estoque.
+3. Pode **buscar** por nome e **filtrar** por categoria.
+4. Seleciona um produto para ver detalhes.
+
+### Fluxo – Aumentar estoque em lotes
+
+1. No detalhe do produto (ou na lista), o operador escolhe o valor do lote (10/20/30…).
+2. Clica em “**Adicionar ao estoque**”.
+3. O sistema exibe **confirmação** com o resumo: “Adicionar +20 ao estoque do produto X?”.
+4. Ao confirmar, o sistema aplica o acréscimo e exibe o **novo estoque**.
+5. Mensagem “Estoque atualizado com sucesso”.
+
+### Fluxos Alternativos / Exceções
+
+- **Valor inválido** (não múltiplo de 10): mostrar erro “Acréscimo deve ser em lotes de 10 (10, 20, 30…)”.
+- **Produto inativo**: bloquear e informar “Produto inativo: não é possível ajustar estoque”.
+- **Limite máximo** (se existir): “Operação ultrapassa o limite de estoque (máx. N).”
+- **Falha de atualização**: “Falha ao atualizar estoque. Tente novamente.”
+
+
+
+
+## Contexto
+
+Os produtos já estarão cadastrados em um **banco de dados MySQL**. Os alunos **não poderão cadastrar/editar dados de produto**; apenas **consultar** e **aumentar a quantidade em estoque** em **lotes de 10 unidades**.
+
+## História
+
+**Como** operador da plataforma (aluno)
+
+**Quero** consultar os produtos disponíveis e aumentar o estoque em lotes de 10
+
+**Para** manter a disponibilidade sem alterar dados cadastrais do catálogo.
+
+## Escopo (o que está dentro)
+
+- Consultar/listar produtos.
+- Buscar por nome, filtrar por categoria e ordenar por preço/estoque.
+- Ver detalhes de um produto (nome, descrição, categoria, preço, estoque atual, imagem).
+- Aumentar a **quantidade em estoque** de um produto em **múltiplos de 10** (ex.: +10, +20, +30…).
+
+## Fora de escopo
+
+- Criar, editar ou excluir produtos.
+- Alterar preço, nome, descrição, categoria.
+- Reduzir estoque.
+
+## Regras de Negócio
+
+1. **Somente acréscimo em lotes de 10** é permitido (múltiplos de 10).
+2. O estoque **nunca pode ser negativo** (não há redução).
+3. Se houver **limite máximo de estoque** definido pela operação (opcional), impedir acréscimos que ultrapassem esse limite e exibir mensagem clara.
+4. Produtos **inativos** não podem receber acréscimo de estoque.
+5. Toda operação de acréscimo deve **confirmar** a ação (ex.: modal “Confirmar +20?”) e exibir o **estoque atualizado** ao final.
+6. Em caso de falha na atualização, exibir mensagem de erro e **não** alterar o valor exibido até que a operação seja bem-sucedida.
+7. O valor informado para acréscimo deve ser **10, 20, 30…**; qualquer outro valor é inválido.
+8. As imagens serão adicionadas pelo frontend de acordo com a caracterisca do produto.
+
+## Critérios de Aceite
+
+- É possível visualizar uma **lista paginada** de produtos com: Nome, Categoria, Preço e Estoque.
+- Existe **busca por nome** e **filtro por categoria**.
+- Ao abrir um produto, vejo seus **detalhes** e o **estoque atual**.
+- Há um controle para escolher o **lote de acréscimo** (ex.: seletor: 10, 20, 30, 40…).
+- Ao solicitar o acréscimo:
+    - O sistema valida o múltiplo de 10.
+    - Mostra **confirmação** antes de aplicar.
+    - Atualiza o **estoque** e mostra uma **mensagem de sucesso**.
+- Em caso de erro (produto inativo, limite excedido, falha na atualização), a operação é **cancelada** e o usuário vê uma **mensagem explicativa**.
+- Não existe opção de “Novo produto”, “Editar” ou “Excluir”.
+
+## Fluxos
+
+### Fluxo Principal – Consultar produtos
+
+1. Operador acessa “Gestão de Produtos”.
+2. Visualiza a lista com nome, categoria, preço e estoque.
+3. Pode **buscar** por nome e **filtrar** por categoria.
+4. Seleciona um produto para ver detalhes.
+
+### Fluxo – Aumentar estoque em lotes
+
+1. No detalhe do produto (ou na lista), o operador escolhe o valor do lote (10/20/30…).
+2. Clica em “**Adicionar ao estoque**”.
+3. O sistema exibe **confirmação** com o resumo: “Adicionar +20 ao estoque do produto X?”.
+4. Ao confirmar, o sistema aplica o acréscimo e exibe o **novo estoque**.
+5. Mensagem “Estoque atualizado com sucesso”.
+
+### Fluxos Alternativos / Exceções
+
+- **Valor inválido** (não múltiplo de 10): mostrar erro “Acréscimo deve ser em lotes de 10 (10, 20, 30…)”.
+- **Produto inativo**: bloquear e informar “Produto inativo: não é possível ajustar estoque”.
+- **Limite máximo** (se existir): “Operação ultrapassa o limite de estoque (máx. N).”
+- **Falha de atualização**: “Falha ao atualizar estoque. Tente novamente.”
+
+
+## Contexto
+
+O sistema precisa permitir que os usuários realizem a **gestão de pedidos** a partir dos produtos já cadastrados. Os alunos apenas irão consumir os dados e simular os fluxos de negócio.
+
+## História de Usuário
+
+**Como** cliente da plataforma,
+
+**Quero** poder consultar os pedidos realizados e acompanhar seu status,
+
+**Para** ter controle sobre minhas compras e saber quando o pedido será entregue.
+
+---
+
+## Funcionalidades Principais
+
+1. **Criar Pedido**
+    - O cliente poderá selecionar produtos cadastrados e adicioná-los ao carrinho.
+    - O pedido só poderá ser finalizado se houver pelo menos 1 produto no carrinho.
+    - O sistema deve calcular automaticamente o valor total do pedido.
+    - Dado que o usuário adicione produtos com estoque mas no momento da efetivação da compra não estiver com estoque disponível o sistema retorna mensagem informando o cliente.
+    - Cliente deve preencher o cep e o sistema deve atualizar os dados de endereço, permitindo a inclusão do número e complemento.
+    - O cliente pode adicionar até 3 endereços ( residencial, comercial e entrega)
+2. **Consultar Pedidos**
+    - O cliente pode visualizar todos os pedidos realizados.
+    - Cada pedido deve exibir:
+        - Número do pedido
+        - Data do pedido
+        - Produtos incluídos (nome, quantidade, valor)
+        - Valor total
+        - Status atual
+3. **Atualizar Status do Pedido**
+    - O sistema deve permitir a alteração do status do pedido de acordo com o fluxo:
+        - **Aguardando Pagamento** → **Pago** → **Em Transporte** → **Entregue**.
+    - Não é permitido pular etapas ou voltar para um status anterior.
+4. **Cancelar Pedido**
+    - O cliente poderá cancelar um pedido apenas enquanto ele estiver em **Aguardando Pagamento** ou **Pago**.
+    - Pedidos em transporte ou entregues não podem ser cancelados.
+    - Dado que o pagamento não foi confirmado em até 72 horas, o pedido será cancelado com sucesso.
+    - O sistema deve exibir uma caixa de texto para o cliente informar o motivo do cancelamento, é obrigatório o envio das informações.
+5. Devolução do Pedido
+    - Produtos com defeito o cliente pode realizar a devolução em até 30 dias após a confirmação da entrega;
+    - Produtos sem defeito o cliente pode realizar a devolução em até 7 dias após a confirmação da entrega;
+6. Remover Produto do carrinho
+    - Dado que exista produto no carrinho o cliente pode clicar em remover, e o carrinho deve ser atualizado.
+    - Dado que não exista produto no carrinho, o botão remover deve ficar inativo;
+    
+
+---
+
+## Regras de Negócio
+
+- Todos os pedidos devem ter um identificador único.
+- O valor total deve ser a soma dos produtos e quantidades.
+- O status inicial de todo pedido será **Aguardando Pagamento**.
+- Cancelamentos devem registrar a data e motivo.
+- O histórico de pedidos deve ficar disponível para o cliente consultar a qualquer momento.
+
+---
+
+## Critérios de Aceite
+
+- [ ]  O cliente consegue criar um pedido com produtos cadastrados.
+- [ ]  O valor total é exibido corretamente.
+- [ ]  É possível consultar os pedidos anteriores.
+- [ ]  O fluxo de status segue a ordem correta.
+- [ ]  Pedidos podem ser cancelados apenas nas fases permitidas.
+- [ ]  O sistema armazena o histórico de todos os pedidos criados.
+
+
+# Logística
+
+O sistema precisa permitir que os usuários acompanhem a logística dos pedidos realizados a partir do momento em que o pagamento é confirmado. Os alunos apenas irão consumir os dados e simular os fluxos de negócio.
+
+---
+
+## História de Usuário
+
+**Como** cliente da plataforma,
+
+**Quero** poder acompanhar o status logístico do meu pedido,
+
+**Para** saber em que etapa da entrega ele está até a finalização.
+
+---
+
+## Funcionalidades Principais
+
+### Consultar Status Logístico
+
+- O cliente poderá visualizar o status atualizado de seus pedidos.
+- Cada pedido deve exibir:
+    - Número do pedido
+    - Data de envio
+    - Status logístico atual
+    - Histórico de movimentações (com data e hora das alterações).
+
+### Frete de entrega
+
+- Compras acima de 399,00 não teremos taxa de frete;
+- Abaixo deste valor vamos cobrar um frete fixo de 100,00;
+
+### Atualizar Status Logístico
+
+- O administrador poderá alterar o status do pedido seguindo o fluxo:
+    - **Aguardando Envio → Em Transporte → Entregue**
+- Não é permitido pular etapas ou retornar para status anteriores.
+- Toda atualização deve registrar data e hora.
+
+### Correção de Status
+
+- O administrador poderá corrigir o status manualmente em caso de erro, mas o sistema deve registrar o motivo da alteração.
+
+---
+
+## Regras de Negócio
+
+1. Todo pedido deve ter apenas **um status logístico ativo** por vez.
+2. O status inicial da logística será sempre **Aguardando Envio**.
+3. O cliente **apenas visualiza** o status, não podendo editá-lo.
+4. A conclusão da logística ocorre quando o status é atualizado para **Entregue**.
+5. O histórico de alterações deve ficar armazenado para consulta a qualquer momento.
+
+---
+
+## Critérios de Aceite
+
+- O cliente consegue visualizar o status atual do pedido.
+- O administrador consegue atualizar o status do pedido seguindo o fluxo correto.
+- O sistema registra data e hora de cada atualização.
+- O cliente visualiza todo o histórico de movimentações logísticas.
+- Não é possível pular etapas ou retornar a status anteriores sem justificativa administrativa.
+- O pedido é considerado finalizado apenas quando o status estiver como **Entregue**.
+
+
+O sistema precisa permitir que os usuários acompanhem a logística dos pedidos realizados a partir do momento em que o pagamento é confirmado. Os alunos apenas irão consumir os dados e simular os fluxos de negócio.
+
+---
+
+## História de Usuário
+
+**Como** cliente da plataforma,
+
+**Quero** poder acompanhar o status logístico do meu pedido,
+
+**Para** saber em que etapa da entrega ele está até a finalização.
+
+---
+
+## Funcionalidades Principais
+
+### Consultar Status Logístico
+
+- O cliente poderá visualizar o status atualizado de seus pedidos.
+- Cada pedido deve exibir:
+    - Número do pedido
+    - Data de envio
+    - Status logístico atual
+    - Histórico de movimentações (com data e hora das alterações).
+
+### Frete de entrega
+
+- Compras acima de 399,00 não teremos taxa de frete;
+- Abaixo deste valor vamos cobrar um frete fixo de 100,00;
+
+### Atualizar Status Logístico
+
+- O administrador poderá alterar o status do pedido seguindo o fluxo:
+    - **Aguardando Envio → Em Transporte → Entregue**
+- Não é permitido pular etapas ou retornar para status anteriores.
+- Toda atualização deve registrar data e hora.
+
+### Correção de Status
+
+- O administrador poderá corrigir o status manualmente em caso de erro, mas o sistema deve registrar o motivo da alteração.
+
+---
+
+## Regras de Negócio
+
+1. Todo pedido deve ter apenas **um status logístico ativo** por vez.
+2. O status inicial da logística será sempre **Aguardando Envio**.
+3. O cliente **apenas visualiza** o status, não podendo editá-lo.
+4. A conclusão da logística ocorre quando o status é atualizado para **Entregue**.
+5. O histórico de alterações deve ficar armazenado para consulta a qualquer momento.
+
+---
+
+## Critérios de Aceite
+
+- O cliente consegue visualizar o status atual do pedido.
+- O administrador consegue atualizar o status do pedido seguindo o fluxo correto.
+- O sistema registra data e hora de cada atualização.
+- O cliente visualiza todo o histórico de movimentações logísticas.
+- Não é possível pular etapas ou retornar a status anteriores sem justificativa administrativa.
+- O pedido é considerado finalizado apenas quando o status estiver como **Entregue**.
