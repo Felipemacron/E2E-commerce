@@ -260,21 +260,27 @@
         });
 
         async function loadProducts() {
+            console.log('loadProducts iniciado');
             try {
                 // Usar a API do catálogo que não precisa de autenticação
                 const response = await fetch('/api/catalog/products');
+                console.log('Resposta da API:', response.status);
                 const data = await response.json();
+                console.log('Dados recebidos:', data);
                 
                 if (data.error) {
+                    console.log('Erro nos dados:', data.error);
                     document.getElementById('productsGrid').innerHTML = '<div class="error">Erro ao carregar produtos</div>';
                     return;
                 }
                 
                 // API do catálogo retorna {meta: {...}, products: [...]}
                 if (data.products && data.products.length > 0) {
+                    console.log('Produtos carregados:', data.products.length);
                     currentProducts = data.products;
                     renderProducts(data.products);
                 } else {
+                    console.log('Nenhum produto encontrado');
                     document.getElementById('productsGrid').innerHTML = '<div class="error">Nenhum produto encontrado</div>';
                 }
             } catch (error) {
@@ -292,7 +298,7 @@
             }
             
             grid.innerHTML = products.map(product => `
-                <div class="product-card">
+                <div class="product-card" data-product-id="${product.id}">
                     <div class="product-image">
                         <img src="${product.image_url || '/images/placeholder.jpg'}" alt="${product.title}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbTwvdGV4dD48L3N2Zz4='">
                     </div>
@@ -303,25 +309,64 @@
                         <div class="product-price">R$ ${product.price.final.toFixed(2)}</div>
                         <div class="product-stock">Estoque: ${product.stock.quantity}</div>
                         <div class="product-actions">
-                            <button class="btn btn-outline" onclick="viewProduct('${product.id}')">Ver Detalhes</button>
-                            <button class="btn btn-primary" onclick="addToCart('${product.id}', '${product.title}', ${product.price.final}, '${product.category}', '${product.image_url}')">Adicionar ao Carrinho</button>
+                            <button class="btn btn-outline view-details-btn" data-product-id="${product.id}">Ver Detalhes</button>
+                            <button class="btn btn-primary add-to-cart-btn" data-product-id="${product.id}">Adicionar ao Carrinho</button>
                         </div>
                     </div>
                 </div>
             `).join('');
+            
+            // Adicionar event listeners após renderizar
+            addEventListeners();
+        }
+        
+        function addEventListeners() {
+            // Event listeners para botões "Ver Detalhes"
+            document.querySelectorAll('.view-details-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    console.log('Botão Ver Detalhes clicado para produto:', productId);
+                    viewProduct(productId);
+                });
+            });
+            
+            // Event listeners para botões "Adicionar ao Carrinho"
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    console.log('Botão Adicionar ao Carrinho clicado para produto:', productId);
+                    
+                    const product = currentProducts.find(p => p.id === productId);
+                    if (product) {
+                        addToCart(product.id, product.title, product.price.final, product.category, product.image_url);
+                    } else {
+                        console.error('Produto não encontrado para ID:', productId);
+                    }
+                });
+            });
         }
 
         function viewProduct(productId) {
+            console.log('viewProduct chamado com ID:', productId);
+            console.log('currentProducts:', currentProducts);
+            
             // Buscar o produto na lista atual
             const product = currentProducts.find(p => p.id === productId);
             if (product) {
+                console.log('Produto encontrado:', product);
                 showProductModal(product);
             } else {
+                console.log('Produto não encontrado');
                 alert('Produto não encontrado');
             }
         }
 
         function showProductModal(product) {
+            const safeTitle = product.title.replace(/'/g, "\\'");
+            const safeDescription = product.description.replace(/'/g, "\\'");
+            const safeCategory = product.category.replace(/'/g, "\\'");
+            const safeImageUrl = (product.image_url || '').replace(/'/g, "\\'");
+            
             const modal = document.createElement('div');
             modal.className = 'modal';
             modal.style.display = 'block';
@@ -330,16 +375,16 @@
                     <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
                     <div class="product-modal">
                         <div class="product-modal-image">
-                            <img src="${product.image_url || '/images/placeholder.jpg'}" alt="${product.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;">
+                            <img src="${product.image_url || '/images/placeholder.jpg'}" alt="${safeTitle}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;">
                         </div>
                         <div class="product-modal-info">
-                            <h2>${product.title}</h2>
-                            <p class="product-category">${product.category}</p>
-                            <p class="product-description">${product.description}</p>
+                            <h2>${safeTitle}</h2>
+                            <p class="product-category">${safeCategory}</p>
+                            <p class="product-description">${safeDescription}</p>
                             <div class="product-price">R$ ${product.price.final.toFixed(2)}</div>
                             <div class="product-stock">Estoque: ${product.stock.quantity} unidades</div>
                             <div class="product-actions" style="margin-top: 20px;">
-                                <button class="btn btn-primary" onclick="addToCart('${product.id}', '${product.title}', ${product.price.final}, '${product.category}', '${product.image_url}'); this.parentElement.parentElement.parentElement.parentElement.remove();">Adicionar ao Carrinho</button>
+                                <button class="btn btn-primary" onclick="addToCart('${product.id}', '${safeTitle}', ${product.price.final}, '${safeCategory}', '${safeImageUrl}'); this.parentElement.parentElement.parentElement.parentElement.remove();">Adicionar ao Carrinho</button>
                                 <button class="btn btn-outline" onclick="this.parentElement.parentElement.parentElement.parentElement.remove();">Fechar</button>
                             </div>
                         </div>
@@ -350,31 +395,37 @@
         }
 
         function addToCart(productId, name, price, category, image) {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            
-            // Verificar se o produto já está no carrinho
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: name,
-                    price: price,
-                    category: category,
-                    image: image,
-                    quantity: 1
-                });
+            console.log('addToCart chamado com:', { productId, name, price, category, image });
+            try {
+                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                
+                // Verificar se o produto já está no carrinho
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: productId,
+                        name: name,
+                        price: parseFloat(price),
+                        category: category,
+                        image: image,
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Mostrar mensagem de sucesso
+                showMessage('Produto adicionado ao carrinho!', 'success');
+                
+                // Atualizar contador do carrinho se existir
+                updateCartCount();
+            } catch (error) {
+                console.error('Erro ao adicionar ao carrinho:', error);
+                showMessage('Erro ao adicionar produto ao carrinho', 'error');
             }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Mostrar mensagem de sucesso
-            showMessage('Produto adicionado ao carrinho!', 'success');
-            
-            // Atualizar contador do carrinho se existir
-            updateCartCount();
         }
 
         function showMessage(message, type = 'info') {
