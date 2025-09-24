@@ -1,7 +1,0 @@
-# Redirects for GitHub Pages
-/api/* /404.html 404
-/admin.html /public/admin.html 200
-/products.html /public/products.html 200
-/cart.html /public/cart.html 200
-/account.html /public/account.html 200
-/catalog.html /public/catalog.html 200
