@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2E-Commerce - Loja Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span>🎉 Frete grátis para pedidos acima de R$ 399,00</span>
+                </div>
+                <div class="header-top-right">
+                    <span>📞 Atendimento: (11) 99999-9999</span>
+                    <span>🚚 Rastrear pedido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a href="/" class="logo-link">
+                        <h1 class="logo">E2E-Commerce</h1>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="header-search">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Buscar produtos...">
+                        <button class="search-btn" type="button">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Cart -->
+                    <div class="cart-container">
+                        <button class="action-btn cart-toggle" title="Carrinho">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <div class="minicart" id="minicart">
+                            <div class="minicart-empty">
+                                <p>Seu carrinho está vazio</p>
+                                <a href="/products.html" class="btn btn-primary">Ver Produtos</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User -->
+                    <div class="user-container">
+                        <button class="action-btn user-toggle" id="userToggle" title="Minha Conta">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="user-info" id="userInfo" style="display: none;">
+                                <div class="user-avatar">
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="user-details">
+                                    <span class="user-name" id="userName">Nome do Usuário</span>
+                                    <span class="user-role" id="userRole">Cliente</span>
+                                </div>
+                            </div>
+                            <div class="user-menu" id="userMenu">
+                                <!-- Menu será preenchido dinamicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="header-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active">Início</a>
+                    </li>
+                    <li class="nav-item mega-menu-trigger">
+                        <a href="/products.html" class="nav-link">Produtos</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-section">
+                                    <h4>Categorias</h4>
+                                    <ul>
+                                        <li><a href="/products.html?category=Eletrônicos">Eletrônicos</a></li>
+                                        <li><a href="/products.html?category=Roupas">Roupas</a></li>
+                                        <li><a href="/products.html?category=Casa">Casa</a></li>
+                                        <li><a href="/products.html?category=Esportes">Esportes</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-section">
+                                    <h4>Ofertas</h4>
+                                    <ul>
+                                        <li><a href="/products.html?sort=price_asc">Menor Preço</a></li>
+                                        <li><a href="/products.html?sort=price_desc">Maior Preço</a></li>
+                                        <li><a href="/products.html?sort=created_at">Mais Recentes</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cart.html" class="nav-link">Carrinho</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/account.html" class="nav-link">Minha Conta</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="mobile-drawer-content">
+                <div class="mobile-drawer-header">
+                    <h3>Menu</h3>
+                    <button class="mobile-drawer-close" id="mobileDrawerClose">×</button>
+                </div>
+                <div class="mobile-drawer-body">
+                    <ul class="mobile-nav-list">
+                        <li><a href="/" class="mobile-nav-link">Início</a></li>
+                        <li><a href="/products.html" class="mobile-nav-link">Produtos</a></li>
+                        <li><a href="/cart.html" class="mobile-nav-link">Carrinho</a></li>
+                        <li><a href="/account.html" class="mobile-nav-link">Minha Conta</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>🔥 Ofertas Imperdíveis!</h2>
+                    <p>Descubra produtos incríveis com preços que cabem no seu bolso. Frete grátis para pedidos acima de R$ 399,00!</p>
+                    <a href="/products.html" class="btn btn-primary btn-large">🛒 Comprar Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2>⭐ Produtos em Destaque</h2>
+                <div id="featuredProducts" class="products-grid">
+                    <!-- Produtos serão carregados via JavaScript -->
+                </div>
+                <div class="loading" id="loadingProducts" style="display: none;">
+                    Carregando produtos...
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <h2>🎯 Por que escolher o E2E-Commerce?</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>🚚 Frete Grátis</h3>
+                        <p>Frete grátis para pedidos acima de R$ 399,00 em todo o Brasil</p>
+                    </div>
+                    <div class="feature">
+                        <h3>💳 Pagamento Seguro</h3>
+                        <p>Múltiplas formas de pagamento com segurança total</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📦 Entrega Rápida</h3>
+                        <p>Entregamos em até 48 horas com rastreamento</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🛡️ Garantia Estendida</h3>
+                        <p>Produtos com garantia e suporte especializado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏪 E2E-Commerce</h3>
+                    <p>Sua loja online com os melhores produtos e preços incríveis. Frete grátis para pedidos acima de R$ 399,00!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🔗 Links Úteis</h3>
+                    <a href="/products.html">Produtos</a>
+                    <a href="/account.html">Minha Conta</a>
+                    <a href="/cart.html">Carrinho</a>
+                    <a href="/admin.html">Admin</a>
+                </div>
+                <div class="footer-section">
+                    <h3>📞 Contato</h3>
+                    <p>📧 contato@e2ecommerce.com</p>
+                    <p>📱 (11) 99999-9999</p>
+                    <p>🕒 Seg-Sex: 8h às 18h</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🛡️ Segurança</h3>
+                    <p>✅ Pagamento 100% Seguro</p>
+                    <p>✅ Frete Grátis</p>
+                    <p>✅ Garantia Estendida</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 E2E-Commerce. Todos os direitos reservados. | Desenvolvido com ❤️ para demonstração</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔑 Entrar</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+            <div class="text-center">
+                <p>Não tem conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>📝 Cadastrar</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nome:</label>
+                    <input type="text" id="registerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha:</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                    <small>Mínimo 10 caracteres com letras, números e símbolos</small>
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">Tipo de Usuário:</label>
+                    <select id="registerRole" name="role" required>
+                        <option value="Cliente">Cliente</option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+            </form>
+            <div class="text-center">
+                <p>Já tem conta? <a href="#" id="showLogin">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="header/header.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

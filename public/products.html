@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - E2E-Commerce</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .product-actions .btn {
+            flex: 1;
+        }
+        
+        .product-modal {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .product-modal-image {
+            flex: 1;
+        }
+        
+        .product-modal-info {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .product-modal {
+                flex-direction: column;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span>🎉 Frete grátis para pedidos acima de R$ 399,00</span>
+                </div>
+                <div class="header-top-right">
+                    <span>📞 Atendimento: (11) 99999-9999</span>
+                    <span>🚚 Rastrear pedido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a href="/" class="logo-link">
+                        <h1 class="logo">E2E-Commerce</h1>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="header-search">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Buscar produtos...">
+                        <button class="search-btn" type="button">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Cart -->
+                    <div class="cart-icon" id="cartIcon">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+
+                    <!-- User Menu -->
+                    <div class="user-menu" id="userMenu">
+                        <button class="user-btn" id="userBtn">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8z"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="/account.html">👤 Minha Conta</a>
+                            <a href="/cart.html">🛒 Meu Carrinho</a>
+                            <a href="#" id="logoutBtn">🚪 Sair</a>
+                        </div>
+                    </div>
+
+                    <!-- Login/Register Buttons (when not logged in) -->
+                    <div class="auth-buttons" id="authButtons">
+                        <button class="btn btn-outline" id="loginBtn">Entrar</button>
+                        <button class="btn btn-primary" id="registerBtn">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1>🛍️ Produtos</h1>
+                <p>Explore nossa seleção de produtos</p>
+            </div>
+
+            <div class="products-section">
+                <div class="products-filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">Todas as categorias</option>
+                    </select>
+                    <input type="text" id="searchFilter" class="filter-input" placeholder="Buscar produtos...">
+                    <button id="filterBtn" class="btn btn-primary">Filtrar</button>
+                </div>
+
+                <div id="productsGrid" class="products-grid">
+                    <div class="loading">Carregando produtos...</div>
+                </div>
+
+                <div id="pagination" class="pagination"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏪 E2E-Commerce</h3>
+                    <p>Sua loja online com os melhores produtos e preços incríveis. Frete grátis para pedidos acima de R$ 399,00!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🔗 Links Úteis</h3>
+                    <a href="/products.html">Produtos</a>
+                    <a href="/account.html">Minha Conta</a>
+                    <a href="/cart.html">Carrinho</a>
+                    <a href="/admin.html">Admin</a>
+                </div>
+                <div class="footer-section">
+                    <h3>📞 Contato</h3>
+                    <p>📧 contato@e2ecommerce.com</p>
+                    <p>📱 (11) 99999-9999</p>
+                    <p>🕒 Seg-Sex: 8h às 18h</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🛡️ Segurança</h3>
+                    <p>✅ Pagamento 100% Seguro</p>
+                    <p>✅ Frete Grátis</p>
+                    <p>✅ Garantia Estendida</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 E2E-Commerce. Todos os direitos reservados. | Desenvolvido com ❤️ para demonstração</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔑 Entrar</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+            <div class="text-center">
+                <p>Não tem conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>📝 Cadastrar</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nome:</label>
+                    <input type="text" id="registerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha:</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                    <small>Mínimo 10 caracteres com letras, números e símbolos</small>
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">Tipo de Usuário:</label>
+                    <select id="registerRole" name="role" required>
+                        <option value="Cliente">Cliente</option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+            </form>
+            <div class="text-center">
+                <p>Já tem conta? <a href="#" id="showLogin">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="header/header.js"></script>
+    <script>
+        let currentProducts = [];
+
+        // Carregar produtos ao inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts();
+            loadCategories();
+        });
+
+        async function loadProducts() {
+            try {
+                // Usar a API do catálogo que não precisa de autenticação
+                const response = await fetch('/api/catalog/products');
+                const data = await response.json();
+                
+                if (data.error) {
+                    document.getElementById('productsGrid').innerHTML = '<div class="error">Erro ao carregar produtos</div>';
+                    return;
+                }
+                
+                // API do catálogo retorna {meta: {...}, products: [...]}
+                if (data.products && data.products.length > 0) {
+                    currentProducts = data.products;
+                    renderProducts(data.products);
+                } else {
+                    document.getElementById('productsGrid').innerHTML = '<div class="error">Nenhum produto encontrado</div>';
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                document.getElementById('productsGrid').innerHTML = '<div class="error">Erro ao carregar produtos</div>';
+            }
+        }
+
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+            
+            if (products.length === 0) {
+                grid.innerHTML = '<div class="no-products">Nenhum produto encontrado</div>';
+                return;
+            }
+            
+            grid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image_url || '/images/placeholder.jpg'}" alt="${product.title}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlbTwvdGV4dD48L3N2Zz4='">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.title}</h3>
+                        <p class="product-category">${product.category}</p>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">R$ ${product.price.final.toFixed(2)}</div>
+                        <div class="product-stock">Estoque: ${product.stock.quantity}</div>
+                        <div class="product-actions">
+                            <button class="btn btn-outline" onclick="viewProduct('${product.id}')">Ver Detalhes</button>
+                            <button class="btn btn-primary" onclick="addToCart('${product.id}', '${product.title}', ${product.price.final}, '${product.category}', '${product.image_url}')">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function viewProduct(productId) {
+            // Buscar o produto na lista atual
+            const product = currentProducts.find(p => p.id === productId);
+            if (product) {
+                showProductModal(product);
+            } else {
+                alert('Produto não encontrado');
+            }
+        }
+
+        function showProductModal(product) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 600px;">
+                    <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                    <div class="product-modal">
+                        <div class="product-modal-image">
+                            <img src="${product.image_url || '/images/placeholder.jpg'}" alt="${product.title}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;">
+                        </div>
+                        <div class="product-modal-info">
+                            <h2>${product.title}</h2>
+                            <p class="product-category">${product.category}</p>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">R$ ${product.price.final.toFixed(2)}</div>
+                            <div class="product-stock">Estoque: ${product.stock.quantity} unidades</div>
+                            <div class="product-actions" style="margin-top: 20px;">
+                                <button class="btn btn-primary" onclick="addToCart('${product.id}', '${product.title}', ${product.price.final}, '${product.category}', '${product.image_url}'); this.parentElement.parentElement.parentElement.parentElement.remove();">Adicionar ao Carrinho</button>
+                                <button class="btn btn-outline" onclick="this.parentElement.parentElement.parentElement.parentElement.remove();">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function addToCart(productId, name, price, category, image) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            // Verificar se o produto já está no carrinho
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: name,
+                    price: price,
+                    category: category,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Mostrar mensagem de sucesso
+            showMessage('Produto adicionado ao carrinho!', 'success');
+            
+            // Atualizar contador do carrinho se existir
+            updateCartCount();
+        }
+
+        function showMessage(message, type = 'info') {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            alert.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            if (type === 'success') {
+                alert.style.backgroundColor = '#28a745';
+            } else if (type === 'error') {
+                alert.style.backgroundColor = '#dc3545';
+            } else {
+                alert.style.backgroundColor = '#007bff';
+            }
+            
+            document.body.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 3000);
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCount = document.getElementById('cartCount');
+            if (cartCount) {
+                cartCount.textContent = count;
+            }
+        }
+
+        async function loadCategories() {
+            try {
+                const response = await fetch('/api/catalog/products');
+                const data = await response.json();
+                
+                if (data.products) {
+                    const categories = [...new Set(data.products.map(p => p.category))];
+                    const select = document.getElementById('categoryFilter');
+                    
+                    categories.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category;
+                        option.textContent = category;
+                        select.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao carregar categorias:', error);
+            }
+        }
+    </script>
+</body>
+</html>
