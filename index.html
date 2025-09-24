@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2E-Commerce - Sistema Completo de E-commerce</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-btn-primary {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .cta-btn-primary:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .cta-btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .cta-btn-secondary:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .features-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .demo-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .demo-card {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .demo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .demo-card-content {
+            padding: 20px;
+        }
+        
+        .demo-card h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .demo-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .demo-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .demo-link:hover {
+            background-color: #0056b3;
+        }
+        
+        .tech-stack {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .tech-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .tech-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .tech-item p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span>🎉 Frete grátis para pedidos acima de R$ 399,00</span>
+                </div>
+                <div class="header-top-right">
+                    <span>📞 Atendimento: (11) 99999-9999</span>
+                    <span>🚚 Rastrear pedido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a href="/" class="logo-link">
+                        <h1 class="logo">E2E-Commerce</h1>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="header-search">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Buscar produtos...">
+                        <button class="search-btn" type="button">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Cart -->
+                    <div class="cart-icon">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </div>
+
+                    <!-- User Menu -->
+                    <div class="user-menu">
+                        <button class="user-btn">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🛍️ E2E-Commerce</h1>
+                <p>Sistema completo de e-commerce desenvolvido com Node.js, Express e SQLite</p>
+                <p>Inclui autenticação JWT, API REST completa, frontend responsivo e muito mais!</p>
+                
+                <div class="cta-buttons">
+                    <a href="public/products.html" class="cta-btn cta-btn-primary">
+                        🛒 Ver Produtos
+                    </a>
+                    <a href="https://github.com/Felipemacron/E2E-commerce" class="cta-btn cta-btn-secondary" target="_blank">
+                        📚 Ver Código
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">
+                ✨ Funcionalidades Principais
+            </h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+                Sistema completo com todas as funcionalidades de um e-commerce moderno
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Autenticação & Usuários</h3>
+                    <p>JWT Authentication, validação de senha, sistema de roles (Cliente, Vendedor, Admin), reset de senha e gestão completa de usuários.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Produtos & Catálogo</h3>
+                    <p>Listagem com filtros, busca por nome/categoria, detalhes interativos, gestão de estoque e 28 produtos reais com imagens.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>Carrinho & Pedidos</h3>
+                    <p>Sistema de carrinho funcional, criação de pedidos com status sequenciais, cancelamento e sistema de devoluções.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Frete & Pagamentos</h3>
+                    <p>Frete grátis para pedidos ≥ R$ 399,00, simulação de pagamentos (Cartão, PIX, Boleto) e confirmação automática.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Administração</h3>
+                    <p>Painel administrativo completo, gestão de produtos, atualização de status, relatórios e auditoria.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Documentação & Testes</h3>
+                    <p>Swagger/OpenAPI completo, testes automatizados com Jest, cobertura de testes e testes E2E.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">
+                📱 Páginas Disponíveis
+            </h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+                Explore todas as funcionalidades do sistema
+            </p>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=200&fit=crop" alt="Produtos">
+                    <div class="demo-card-content">
+                        <h4>🛒 Produtos</h4>
+                        <p>Catálogo completo com filtros, busca e detalhes dos produtos.</p>
+                        <a href="public/products.html" class="demo-link">Ver Produtos</a>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <img src="https://images.unsplash.com/photo-1556742111-a301076d9d18?w=400&h=200&fit=crop" alt="Carrinho">
+                    <div class="demo-card-content">
+                        <h4>🛍️ Carrinho</h4>
+                        <p>Sistema de carrinho funcional com localStorage.</p>
+                        <a href="public/cart.html" class="demo-link">Ver Carrinho</a>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=200&fit=crop" alt="Conta">
+                    <div class="demo-card-content">
+                        <h4>👤 Minha Conta</h4>
+                        <p>Área do usuário com perfil e pedidos.</p>
+                        <a href="public/account.html" class="demo-link">Ver Conta</a>
+                    </div>
+                </div>
+                
+                <div class="demo-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Admin">
+                    <div class="demo-card-content">
+                        <h4>👨‍💼 Admin</h4>
+                        <p>Painel administrativo completo.</p>
+                        <a href="public/admin.html" class="demo-link">Ver Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px;">
+                🏗️ Stack Tecnológico
+            </h2>
+            <p style="text-align: center; font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">
+                Tecnologias modernas e robustas para um sistema de e-commerce completo
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>🟢 Node.js</h4>
+                    <p>Runtime JavaScript para o backend</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>🚀 Express</h4>
+                    <p>Framework web rápido e minimalista</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>🗄️ SQLite</h4>
+                    <p>Banco de dados leve e eficiente</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>🔐 JWT</h4>
+                    <p>Autenticação segura e stateless</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>📚 Swagger</h4>
+                    <p>Documentação automática da API</p>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>🧪 Jest</h4>
+                    <p>Framework de testes completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏪 E2E-Commerce</h3>
+                    <p>Sistema completo de e-commerce desenvolvido com as melhores práticas e tecnologias modernas.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🔗 Links Úteis</h3>
+                    <a href="public/products.html">Produtos</a>
+                    <a href="public/account.html">Minha Conta</a>
+                    <a href="public/cart.html">Carrinho</a>
+                    <a href="public/admin.html">Admin</a>
+                </div>
+                <div class="footer-section">
+                    <h3>📞 Contato</h3>
+                    <p>📧 contato@e2ecommerce.com</p>
+                    <p>📱 (11) 99999-9999</p>
+                    <p>🕒 Seg-Sex: 8h às 18h</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🛡️ Segurança</h3>
+                    <p>✅ Pagamento 100% Seguro</p>
+                    <p>✅ Frete Grátis</p>
+                    <p>✅ Garantia Estendida</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 E2E-Commerce. Todos os direitos reservados. | Desenvolvido com ❤️ por <a href="https://github.com/Felipemacron" target="_blank" style="color: #007bff;">Felipe Macron</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simular funcionalidade básica do carrinho
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartCount = document.querySelector('.cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = count;
+        });
+    </script>
+</body>
+</html>
