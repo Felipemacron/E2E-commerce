@@ -1,46 +1,99 @@
-# E2E-Commerce
+# 🛍️ E2E-Commerce - Sistema de E-commerce Completo
 
-Sistema de e-commerce com duas implementações: **Sistema Completo** e **Catálogo Simples**.
+Sistema de e-commerce full-stack desenvolvido com Node.js, Express, SQLite e frontend vanilla JavaScript.
 
-## 🚀 Duas Opções Disponíveis
+## 🚀 Funcionalidades
 
-### 1. 🛍️ **Catálogo Simples** (Recomendado)
-- **API simplificada** seguindo padrão do [catalogo-products](https://github.com/repoe2e/catalogo-products)
-- **Sem autenticação** - Foco em simplicidade
-- **500 produtos** pré-populados
-- **Interface moderna** e responsiva
-- **Acesso**: `http://localhost:3000/catalog.html`
+### 🔐 Autenticação
+- ✅ Login e registro de usuários
+- ✅ JWT com expiração de 30 minutos
+- ✅ Validação de senha (mín. 10 caracteres, letras, números, símbolos)
+- ✅ Roles: Cliente, Vendedor, Admin
+- ✅ Reset de senha com tokens expiráveis
 
-### 2. 🏢 **Sistema Completo**
-- **Autenticação JWT** com roles (Cliente/Vendedor/Admin)
-- **Gestão completa** de produtos, pedidos e usuários
-- **Fluxo de pedidos** com status sequenciais
-- **Painel administrativo**
-- **Acesso**: `http://localhost:3000`
+### 📦 Produtos
+- ✅ Catálogo de produtos com paginação
+- ✅ Busca por nome e categoria
+- ✅ Filtros e ordenação
+- ✅ Gestão de estoque (múltiplos de 10)
+- ✅ Produtos inativos
+- ✅ Imagens reais do Unsplash
 
-## 🏗️ Arquitetura
+### 🛒 Carrinho e Pedidos
+- ✅ Carrinho de compras funcional
+- ✅ Criação de pedidos
+- ✅ Status sequenciais: Aguardando → Pago → Em Transporte → Entregue
+- ✅ Cancelamento com motivo obrigatório
+- ✅ Histórico de logística
+- ✅ Sistema de devoluções (7 dias sem defeito, 30 dias com defeito)
 
-- **Backend**: Node.js + Express
-- **Frontend**: HTML + CSS + JavaScript (Vanilla)
-- **Banco**: SQLite
-- **Documentação**: Swagger/OpenAPI
+### 💰 Pagamento e Frete
+- ✅ Simulação de pagamento (Cartão, PIX, Boleto)
+- ✅ Confirmação automática de pagamento
+- ✅ Frete grátis para pedidos ≥ R$ 399,00
+- ✅ Frete R$ 100,00 para pedidos < R$ 399,00
+
+### 👨‍💼 Administração
+- ✅ Painel admin para vendedores/admins
+- ✅ Gestão de produtos
+- ✅ Atualização de status de pedidos
+- ✅ Relatórios e auditoria
+- ✅ Gestão de fornecedores
+
+### 🤖 Automação
+- ✅ Job automático para cancelar pedidos não pagos (1 hora)
+- ✅ Limpeza automática de tokens expirados (6 horas)
+- ✅ Gestão de fornecedores
+
+## 🛠️ Tecnologias
+
+### Backend
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web
+- **SQLite** - Banco de dados
+- **JWT** - Autenticação
+- **bcrypt** - Hash de senhas
+- **Helmet** - Segurança
+- **CORS** - Cross-origin requests
+- **Rate Limiting** - Proteção contra spam
+
+### Frontend
+- **HTML5** - Estrutura
+- **CSS3** - Estilização responsiva
+- **Vanilla JavaScript** - Interatividade
+- **LocalStorage** - Carrinho de compras
+
+### Documentação
+- **Swagger/OpenAPI** - Documentação da API
+- **JSDoc** - Documentação inline
+
+### Testes
+- **Jest** - Framework de testes
+- **Supertest** - Testes de API
+- **Coverage** - Relatórios de cobertura
 
 ## 📁 Estrutura do Projeto
 
 ```
-sistema simples/
-├── controllers/          # Lógica de negócio
-├── db/                   # Configuração do banco
-├── middleware/           # Middlewares (auth, etc)
-├── public/               # Frontend estático
-│   ├── css/             # Estilos
-│   ├── js/              # JavaScript
-│   └── *.html           # Páginas
-├── routes/               # Rotas da API
-├── scripts/              # Scripts de migração/seed
-├── swagger-docs/         # Documentação da API
-├── server.js             # Servidor principal
-└── swagger.js            # Configuração Swagger
+E2E-Commerce/
+├── 📁 controllers/          # Lógica de negócio
+├── 📁 middleware/           # Middlewares (auth, validação)
+├── 📁 routes/              # Rotas da API
+├── 📁 scripts/             # Scripts de migração e seed
+├── 📁 swagger-docs/        # Documentação Swagger
+├── 📁 public/              # Frontend
+│   ├── 📁 css/            # Estilos
+│   ├── 📁 js/             # JavaScript
+│   ├── 📁 header/         # Componentes do header
+│   ├── 📄 index.html      # Página inicial
+│   ├── 📄 products.html   # Catálogo de produtos
+│   ├── 📄 cart.html       # Carrinho de compras
+│   ├── 📄 account.html    # Conta do usuário
+│   └── 📄 catalog.html    # Catálogo simplificado
+├── 📄 server.js           # Servidor principal
+├── 📄 swagger.js          # Configuração Swagger
+├── 📄 package.json        # Dependências
+└── 📄 README.md           # Este arquivo
 ```
 
 ## 🚀 Como Executar
@@ -50,72 +103,115 @@ sistema simples/
 npm install
 ```
 
-### 2. Configurar Banco
+### 2. Configurar Banco de Dados
 ```bash
 npm run migrate
-npm run seed-catalog
+npm run seed
 ```
 
-### 3. Iniciar Servidor
+### 3. Executar o Servidor
 ```bash
 npm start
+# ou para desenvolvimento
+npm run dev
 ```
 
-### 4. Acessar Sistema
-- **Catálogo Simples**: http://localhost:3000/catalog.html
-- **Sistema Completo**: http://localhost:3000
+### 4. Acessar o Sistema
+- **Frontend**: http://localhost:3000
 - **API**: http://localhost:3000/api
-- **Swagger**: http://localhost:3000/api-docs
+- **Documentação Swagger**: http://localhost:3000/api-docs
+- **Health Check**: http://localhost:3000/api/health
 
-## 🛍️ Catálogo Simples - API
+## 🧪 Testes
 
-### Endpoints Principais
 ```bash
-# Listar produtos
-GET /api/products?page=1&pageSize=10
+# Executar todos os testes
+npm test
 
-# Criar pedido
-POST /api/orders
-{
-  "buyer": {
-    "name": "João Silva",
-    "email": "joao@example.com"
-  },
-  "items": [
-    {
-      "productId": "PROD-0001",
-      "qty": 2
-    }
-  ]
-}
+# Executar testes com coverage
+npm run test:coverage
+
+# Executar testes em modo watch
+npm run test:watch
 ```
 
-## 🏢 Sistema Completo - Usuários de Teste
+## 📚 Documentação da API
 
-- **Admin**: `admin@e2ecommerce.com` / `Admin123!@#`
-- **Vendedor**: `vendedor@e2ecommerce.com` / `Vendedor123!@#`
-- **Cliente**: `cliente@e2ecommerce.com` / `Cliente123!@#`
+A documentação completa da API está disponível em:
+- **Swagger UI**: http://localhost:3000/api-docs
+- **OpenAPI JSON**: http://localhost:3000/api-docs.json
 
-## 🔧 Scripts Disponíveis
+### Principais Endpoints
 
-- `npm start` - Inicia o servidor
-- `npm run dev` - Modo desenvolvimento
-- `npm run migrate` - Executa migrações
-- `npm run seed-catalog` - Popula catálogo com 500 produtos
+#### Autenticação
+- `POST /api/auth/login` - Login
+- `POST /api/auth/register` - Registro
+- `POST /api/auth/forgot-password` - Esqueci minha senha
+- `POST /api/auth/reset-password` - Resetar senha
 
-## 📚 Documentação
+#### Produtos
+- `GET /api/products` - Listar produtos
+- `GET /api/products/:id` - Detalhes do produto
+- `POST /api/products` - Criar produto (Admin/Vendedor)
+- `PUT /api/products/:id` - Atualizar produto (Admin/Vendedor)
 
-- **Swagger**: http://localhost:3000/api-docs
-- **README**: Este arquivo
+#### Catálogo Simplificado
+- `GET /api/catalog/products` - Listar produtos (sem auth)
+- `POST /api/catalog/orders` - Criar pedido (sem auth)
 
-## 🛡️ Segurança
+#### Pedidos
+- `GET /api/orders` - Meus pedidos
+- `POST /api/orders` - Criar pedido
+- `PUT /api/orders/:id/status` - Atualizar status (Admin/Vendedor)
 
-- **Helmet** para headers de segurança
-- **CORS** configurado
-- **Rate Limiting** (100 req/15min)
-- **Validação** de entrada
-- **JWT** para autenticação (sistema completo)
+## 🔒 Segurança
 
-## 📝 Licença
+- **Helmet** - Headers de segurança
+- **CORS** - Controle de origem
+- **Rate Limiting** - Proteção contra spam
+- **Validação de entrada** - Sanitização de dados
+- **JWT** - Autenticação segura
+- **bcrypt** - Hash de senhas
 
-MIT License
+## 📱 Responsividade
+
+O sistema é totalmente responsivo e funciona em:
+- 📱 **Mobile** (320px+)
+- 📱 **Tablet** (768px+)
+- 💻 **Desktop** (1024px+)
+- 🖥️ **Large Desktop** (1440px+)
+
+## 🎨 Interface
+
+- **Design moderno** e limpo
+- **Cores consistentes** com tema profissional
+- **Animações suaves** para melhor UX
+- **Modais responsivos** para detalhes
+- **Feedback visual** para ações do usuário
+
+## 🤝 Contribuição
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+## 👨‍💻 Autor
+
+**Felipe Macron**
+- GitHub: [@Felipemacron](https://github.com/Felipemacron)
+
+## 🙏 Agradecimentos
+
+- Imagens dos produtos: [Unsplash](https://unsplash.com)
+- Ícones: [Heroicons](https://heroicons.com)
+- Fontes: [Google Fonts](https://fonts.google.com)
+
+---
+
+**Desenvolvido com ❤️ para demonstração de sistema E2E-Commerce completo**
