@@ -1,0 +1,24 @@
+# Configuração do Jekyll para GitHub Pages
+# Este arquivo desabilita o Jekyll para servir arquivos estáticos puros
+
+include: []
+exclude:
+  - README.md
+  - package.json
+  - package-lock.json
+  - node_modules
+  - scripts
+  - .github
+  - server.js
+  - database.db
+  - db
+  - controllers
+  - middleware
+  - routes
+  - swagger-docs
+  - swagger.js
+
+# Desabilitar processamento Jekyll
+plugins: []
+markdown: kramdown
+highlighter: rouge

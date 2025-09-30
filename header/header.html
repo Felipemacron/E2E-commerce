@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header - E2E-Commerce</title>
+    <link rel="stylesheet" href="header.css">
+    <style>
+        /* Critical CSS inline para header */
+        :root {
+            --color-primary: #ff6b35;
+            --color-accent: #f39c12;
+            --color-bg: #ffffff;
+            --color-bg-secondary: #f8f9fa;
+            --color-text: #2c3e50;
+            --color-muted: #6c757d;
+            --color-border: #e9ecef;
+            --radius: 8px;
+            --gap: 16px;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.15);
+            --transition: all 0.15s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--color-text);
+            background: var(--color-bg-secondary);
+        }
+        
+        .demo-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <header class="header" id="mainHeader">
+        <!-- Top Bar (Antena) -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span class="top-info">
+                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        (11) 99999-9999
+                    </span>
+                    <span class="top-info">
+                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Entrega em até 48h
+                    </span>
+                </div>
+                <div class="header-top-right">
+                    <a href="#" class="top-link">
+                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Rastrear Pedido
+                    </a>
+                    <a href="#" class="top-link">
+                        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Central de Ajuda
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header Bar -->
+        <div class="header-main">
+            <div class="container">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a href="/" class="logo-link" aria-label="E2E-Commerce - Página inicial">
+                        <span class="logo-text">E2E-Commerce</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="header-search">
+                    <form class="search-form" role="search" aria-label="Buscar produtos">
+                        <div class="search-input-wrapper">
+                            <input 
+                                type="search" 
+                                id="searchInput"
+                                class="search-input" 
+                                placeholder="Buscar produtos, marcas e muito mais..."
+                                autocomplete="off"
+                                aria-describedby="searchSuggestions"
+                                aria-expanded="false"
+                                aria-controls="searchSuggestions"
+                            >
+                            <button type="submit" class="search-button" aria-label="Buscar">
+                                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Search Suggestions -->
+                        <div id="searchSuggestions" class="search-suggestions" role="listbox" aria-label="Sugestões de busca">
+                            <!-- Suggestions will be populated by JavaScript -->
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Favorites -->
+                    <button class="action-button" aria-label="Favoritos" title="Favoritos">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span class="action-badge" id="favoritesCount">0</span>
+                    </button>
+
+                    <!-- Compare -->
+                    <button class="action-button" aria-label="Comparar produtos" title="Comparar">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 3H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 6H5V5h4v4zm11-6h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 6h-4V5h4v4zM9 13H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm0 6H5v-4h4v4zm11-6h-4c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm0 6h-4v-4h4v4z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Cart -->
+                    <div class="cart-wrapper">
+                        <button class="action-button cart-toggle" aria-label="Carrinho de compras" title="Carrinho">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                            </svg>
+                            <span class="action-badge" id="cartCount">0</span>
+                        </button>
+                        
+                        <!-- Cart Dropdown -->
+                        <div class="cart-dropdown" id="cartDropdown" role="dialog" aria-label="Carrinho de compras">
+                            <div class="cart-header">
+                                <h3>Carrinho</h3>
+                                <button class="cart-close" aria-label="Fechar carrinho">&times;</button>
+                            </div>
+                            <div class="cart-content">
+                                <div class="cart-items" id="cartItems">
+                                    <!-- Cart items will be populated by JavaScript -->
+                                </div>
+                                <div class="cart-footer">
+                                    <div class="cart-total">
+                                        <span>Total: <strong id="cartTotal">R$ 0,00</strong></span>
+                                    </div>
+                                    <div class="cart-actions">
+                                        <a href="/cart.html" class="btn btn-outline">Ver Carrinho</a>
+                                        <a href="/checkout.html" class="btn btn-primary">Finalizar Compra</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <button class="action-button" aria-label="Notificações" title="Notificações">
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                        </svg>
+                        <span class="action-badge" id="notificationsCount">0</span>
+                    </button>
+
+                    <!-- User Account -->
+                    <div class="user-wrapper">
+                        <button class="action-button user-toggle" aria-label="Minha conta" title="Minha conta">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- User Dropdown -->
+                        <div class="user-dropdown" id="userDropdown" role="menu" aria-label="Menu da conta">
+                            <div class="user-content" id="userContent">
+                                <!-- User content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="header-nav" id="headerNav">
+            <div class="container">
+                <ul class="nav-list" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a href="/" class="nav-link" role="menuitem">Início</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="/products.html" class="nav-link" role="menuitem">Produtos</a>
+                    </li>
+                    <li class="nav-item mega-menu-trigger" role="none">
+                        <button class="nav-link mega-menu-button" role="menuitem" aria-expanded="false" aria-controls="megaMenu">
+                            Categorias
+                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Mega Menu -->
+                        <div class="mega-menu" id="megaMenu" role="menu" aria-label="Categorias">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-categories">
+                                    <div class="category-section">
+                                        <h3>Eletrônicos</h3>
+                                        <ul>
+                                            <li><a href="/products.html?category=smartphones">Smartphones</a></li>
+                                            <li><a href="/products.html?category=notebooks">Notebooks</a></li>
+                                            <li><a href="/products.html?category=tablets">Tablets</a></li>
+                                            <li><a href="/products.html?category=acessorios">Acessórios</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-section">
+                                        <h3>Casa & Decoração</h3>
+                                        <ul>
+                                            <li><a href="/products.html?category=moveis">Móveis</a></li>
+                                            <li><a href="/products.html?category=decoracao">Decoração</a></li>
+                                            <li><a href="/products.html?category=cozinha">Cozinha</a></li>
+                                            <li><a href="/products.html?category=limpeza">Limpeza</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="category-section">
+                                        <h3>Moda & Beleza</h3>
+                                        <ul>
+                                            <li><a href="/products.html?category=roupas">Roupas</a></li>
+                                            <li><a href="/products.html?category=calcados">Calçados</a></li>
+                                            <li><a href="/products.html?category=beleza">Beleza</a></li>
+                                            <li><a href="/products.html?category=acessorios-moda">Acessórios</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mega-menu-promo">
+                                    <div class="promo-banner">
+                                        <h4>🔥 Ofertas do Dia</h4>
+                                        <p>Até 50% OFF em produtos selecionados</p>
+                                        <a href="/products.html?sale=true" class="btn btn-primary">Ver Ofertas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="/about.html" class="nav-link" role="menuitem">Sobre</a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a href="/contact.html" class="nav-link" role="menuitem">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Drawer -->
+        <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <h3>Menu</h3>
+                    <button class="mobile-menu-close" aria-label="Fechar menu">&times;</button>
+                </div>
+                <div class="mobile-menu-body">
+                    <ul class="mobile-nav-list">
+                        <li><a href="/" class="mobile-nav-link">Início</a></li>
+                        <li><a href="/products.html" class="mobile-nav-link">Produtos</a></li>
+                        <li class="mobile-nav-item">
+                            <button class="mobile-nav-link mobile-submenu-toggle" aria-expanded="false">
+                                Categorias
+                                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M7 10l5 5 5-5z"/>
+                                </svg>
+                            </button>
+                            <ul class="mobile-submenu">
+                                <li><a href="/products.html?category=smartphones">Smartphones</a></li>
+                                <li><a href="/products.html?category=notebooks">Notebooks</a></li>
+                                <li><a href="/products.html?category=tablets">Tablets</a></li>
+                                <li><a href="/products.html?category=acessorios">Acessórios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/about.html" class="mobile-nav-link">Sobre</a></li>
+                        <li><a href="/contact.html" class="mobile-nav-link">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Promo Bar (Optional) -->
+    <div class="promo-bar" id="promoBar">
+        <div class="container">
+            <div class="promo-content">
+                <span class="promo-text">🎉 Frete grátis para pedidos acima de R$ 399,00!</span>
+                <button class="promo-close" aria-label="Fechar promoção">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="header.closeLoginModal()">&times;</span>
+            <h2>Entrar</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+            <p class="text-center">
+                Não tem conta? <a href="#" id="showRegisterFromLogin">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="header.closeRegisterModal()">&times;</span>
+            <h2>Cadastrar</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nome completo:</label>
+                    <input type="text" id="registerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha (mín. 10 caracteres):</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">Tipo de conta:</label>
+                    <select id="registerRole" name="role">
+                        <option value="Cliente">Cliente</option>
+                        <option value="Vendedor">Vendedor</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+            </form>
+            <p class="text-center">
+                Já tem conta? <a href="#" id="showLoginFromRegister">Faça login</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <div class="demo-section">
+            <h1>Header E2E-Commerce - Demo</h1>
+            <p>Este é um exemplo de como o header funciona. Role a página para ver o comportamento sticky.</p>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Funcionalidades Implementadas</h2>
+            <ul>
+                <li>✅ Top bar com informações rápidas</li>
+                <li>✅ Logo clicável</li>
+                <li>✅ Busca com autocomplete</li>
+                <li>✅ Mega-menu de categorias</li>
+                <li>✅ Minicart com dropdown</li>
+                <li>✅ Menu mobile responsivo</li>
+                <li>✅ Acessibilidade completa</li>
+                <li>✅ Animações e microinterações</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>Teste as Funcionalidades</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button onclick="testSearch()" class="btn btn-primary">Testar Busca</button>
+                <button onclick="testCart()" class="btn btn-primary">Testar Carrinho</button>
+                <button onclick="testMegaMenu()" class="btn btn-primary">Testar Mega Menu</button>
+                <button onclick="testMobileMenu()" class="btn btn-primary">Testar Menu Mobile</button>
+                <button onclick="testLogin()" class="btn btn-primary">Testar Login</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Atalhos de Teclado</h2>
+            <ul>
+                <li><kbd>/</kbd> - Focar na busca</li>
+                <li><kbd>c</kbd> - Abrir carrinho</li>
+                <li><kbd>u</kbd> - Abrir login</li>
+                <li><kbd>Esc</kbd> - Fechar modais/dropdowns</li>
+            </ul>
+        </div>
+
+        <!-- Spacer para testar scroll -->
+        <div style="height: 200vh; background: linear-gradient(to bottom, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+            <p>Role para testar o comportamento sticky do header</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="header.js"></script>
+    
+    <script>
+        // Demo functions
+        function testSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.focus();
+            searchInput.value = 'smartphone';
+            searchInput.dispatchEvent(new Event('input'));
+        }
+        
+        function testCart() {
+            window.header.minicart.show();
+        }
+        
+        function testMegaMenu() {
+            const megaMenuButton = document.querySelector('.mega-menu-button');
+            megaMenuButton.click();
+        }
+        
+        function testMobileMenu() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            mobileToggle.click();
+        }
+        
+        function testLogin() {
+            if (window.header) {
+                window.header.showLoginModal();
+            } else {
+                console.error('Header não inicializado');
+            }
+        }
+    </script>
+</body>
+</html>
