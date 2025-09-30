@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - E2E-Commerce</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span>🎉 Frete grátis para pedidos acima de R$ 399,00</span>
+                </div>
+                <div class="header-top-right">
+                    <span>📞 Atendimento: (11) 99999-9999</span>
+                    <span>🚚 Rastrear pedido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <!-- Logo -->
+                <div class="header-logo">
+                    <a href="/" class="logo-link">
+                        <h1 class="logo">E2E-Commerce</h1>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="header-search">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Buscar produtos...">
+                        <button class="search-btn" type="button">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Cart -->
+                    <div class="cart-icon" id="cartIcon">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+
+                    <!-- User Menu -->
+                    <div class="user-menu" id="userMenu">
+                        <button class="user-btn" id="userBtn">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8z"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="/account.html">👤 Minha Conta</a>
+                            <a href="/cart.html">🛒 Meu Carrinho</a>
+                            <a href="#" id="logoutBtn">🚪 Sair</a>
+                        </div>
+                    </div>
+
+                    <!-- Login/Register Buttons (when not logged in) -->
+                    <div class="auth-buttons" id="authButtons">
+                        <button class="btn btn-outline" id="loginBtn">Entrar</button>
+                        <button class="btn btn-primary" id="registerBtn">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1>🛒 Meu Carrinho</h1>
+                <p>Revise seus itens antes de finalizar a compra</p>
+            </div>
+
+            <div class="cart-section">
+                <div class="cart-content">
+                    <div class="cart-items" id="cartItems">
+                        <div class="loading">Carregando carrinho...</div>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="summary-card">
+                            <h3>📋 Resumo do Pedido</h3>
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Frete:</span>
+                                <span id="shipping">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="total">R$ 0,00</span>
+                            </div>
+                            <button class="btn btn-primary btn-block" id="checkoutBtn">
+                                🛒 Finalizar Compra
+                            </button>
+                            <a href="/products.html" class="btn btn-outline btn-block">
+                                ← Continuar Comprando
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏪 E2E-Commerce</h3>
+                    <p>Sua loja online com os melhores produtos e preços incríveis. Frete grátis para pedidos acima de R$ 399,00!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🔗 Links Úteis</h3>
+                    <a href="/products.html">Produtos</a>
+                    <a href="/account.html">Minha Conta</a>
+                    <a href="/cart.html">Carrinho</a>
+                    <a href="/admin.html">Admin</a>
+                </div>
+                <div class="footer-section">
+                    <h3>📞 Contato</h3>
+                    <p>📧 contato@e2ecommerce.com</p>
+                    <p>📱 (11) 99999-9999</p>
+                    <p>🕒 Seg-Sex: 8h às 18h</p>
+                </div>
+                <div class="footer-section">
+                    <h3>🛡️ Segurança</h3>
+                    <p>✅ Pagamento 100% Seguro</p>
+                    <p>✅ Frete Grátis</p>
+                    <p>✅ Garantia Estendida</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 E2E-Commerce. Todos os direitos reservados. | Desenvolvido com ❤️ para demonstração</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔑 Entrar</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            </form>
+            <div class="text-center">
+                <p>Não tem conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>📝 Cadastrar</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nome:</label>
+                    <input type="text" id="registerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha:</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                    <small>Mínimo 10 caracteres com letras, números e símbolos</small>
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">Tipo de Usuário:</label>
+                    <select id="registerRole" name="role" required>
+                        <option value="Cliente">Cliente</option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+            </form>
+            <div class="text-center">
+                <p>Já tem conta? <a href="#" id="showLogin">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="header/header.js"></script>
+    <script>
+        // Carregar carrinho ao inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+        });
+
+        function loadCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <h3>🛒 Seu carrinho está vazio</h3>
+                        <p>Adicione alguns produtos para começar suas compras!</p>
+                        <a href="/products.html" class="btn btn-primary">Ver Produtos</a>
+                    </div>
+                `;
+                updateSummary(0);
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="${item.image || '/images/placeholder.jpg'}" alt="${item.name}">
+                    </div>
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p class="item-category">${item.category}</p>
+                        <p class="item-price">R$ ${item.price.toFixed(2)}</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                        <span class="qty">${item.quantity}</span>
+                        <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                    </div>
+                    <div class="item-total">
+                        <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-danger btn-sm" onclick="removeItem(${item.id})">
+                            🗑️ Remover
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            updateSummary(cart);
+        }
+
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function removeItem(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function updateSummary(cart) {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 399 ? 0 : 100;
+            const total = subtotal + shipping;
+
+            document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+            document.getElementById('shipping').textContent = `R$ ${shipping.toFixed(2)}`;
+            document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

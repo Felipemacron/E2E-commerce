@@ -12,7 +12,9 @@
     "test:unit": "jest --config tests/jest.config.js tests/unit",
     "test:e2e": "jest --config tests/jest.config.js tests/e2e",
     "test:watch": "jest --config tests/jest.config.js --watch",
-    "test:coverage": "jest --config tests/jest.config.js --coverage"
+    "test:coverage": "jest --config tests/jest.config.js --coverage",
+    "build:static": "node scripts/build-static.js",
+    "preview:static": "npx http-server dist -p 8080"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
